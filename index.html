@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SyncFlow AI - Collaborative Workspace Dashboard</title>
+    <title>SyncFlow AI - Industry Collaborative Dashboard</title>
     <!-- Google Fonts for premium typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,172 +25,317 @@
                     <span class="app-tagline">AI-Powered Real-Time Collaborative Workspace with Live Analytics</span>
                 </div>
             </div>
-            <div class="student-meta">
-                <div class="meta-badge">
-                    <span class="meta-label">Developer</span>
-                    <span class="meta-value">Bhuvanesh S</span>
-                </div>
-                <div class="meta-badge">
-                    <span class="meta-label">Register No.</span>
-                    <span class="meta-value">23IT101</span>
+            
+            <div class="header-right">
+                <!-- Date & Time Display Container -->
+                <div class="clock-display" id="current-time">Loading system parameters...</div>
+                
+                <div class="student-meta">
+                    <div class="meta-badge">
+                        <span class="meta-label">Developer</span>
+                        <span class="meta-value">Bhuvanesh S</span>
+                    </div>
+                    <div class="meta-badge">
+                        <span class="meta-label">Register No.</span>
+                        <span class="meta-value">23IT101</span>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- 2. Navigation Bar -->
+    <!-- 2. Navigation Bar & Actions -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-links">
                 <a href="#home" class="nav-item active">Home</a>
                 <a href="#dashboard" class="nav-item">Dashboard</a>
+                <a href="#features" class="nav-item">Features</a>
                 <a href="#services" class="nav-item">Services</a>
                 <a href="#reports" class="nav-item">Reports</a>
-                <a href="#about" class="nav-item">About</a>
                 <a href="#contact" class="nav-item">Contact</a>
             </div>
-            <a href="#logout" class="logout-btn">
-                <span>Logout</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-            </a>
+            
+            <div class="nav-actions">
+                <!-- Theme Switcher Control -->
+                <button id="theme-toggle" class="nav-action-btn theme-btn" title="Toggle System console">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <span>Dark Console</span>
+                </button>
+                
+                <!-- Notification Trigger Button -->
+                <a href="#notifications" id="notification-trigger" class="nav-action-btn notify-btn" title="Notifications panel">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                    <span id="notification-badge" class="badge">3</span>
+                </a>
+                
+                <!-- Logout Trigger -->
+                <a href="#logout" class="logout-btn">
+                    <span>Logout</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!-- 7. Latest Updates (Announcements Marquee) -->
-    <div class="ticker-wrapper">
-        <span class="ticker-label">LATEST UPDATES</span>
-        <marquee class="ticker-content" behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
-            <span>🚀 SyncFlow AI v2.4.0 is now live! Introducing lower latency collaborative workspaces and advanced analytics pipeline.</span>
-            <span>⚠️ Scheduled maintenance on July 5th, 2026, from 02:00 to 04:00 UTC (No workspace downtime expected).</span>
-            <span>💡 Quick Tip: Use "/ai prompt" inside the collaborative canvas to summon the code generation module instantly.</span>
-        </marquee>
+    <!-- Notification Drawer Slide Panel -->
+    <div id="notification-panel" class="notification-panel">
+        <div class="panel-header">
+            <h3>Workspace Telemetry Alerts</h3>
+            <button id="notification-close" class="panel-close-btn">&times;</button>
+        </div>
+        <ul class="notification-list">
+            <li class="notification-item">
+                <span class="notify-icon purple">⚡</span>
+                <div class="notify-info">
+                    <p>SyncFlow AI v2.4.0 is now live!</p>
+                    <span class="notify-time">5 mins ago</span>
+                </div>
+                <button class="btn-dismiss">&times;</button>
+            </li>
+            <li class="notification-item">
+                <span class="notify-icon orange">⚠️</span>
+                <div class="notify-info">
+                    <p>Telemetry nodes restart scheduled at 02:00 UTC.</p>
+                    <span class="notify-time">2 hours ago</span>
+                </div>
+                <button class="btn-dismiss">&times;</button>
+            </li>
+            <li class="notification-item">
+                <span class="notify-icon blue">👤</span>
+                <div class="notify-info">
+                    <p>Collaborator Bhuvanesh S logged in.</p>
+                    <span class="notify-time">4 hours ago</span>
+                </div>
+                <button class="btn-dismiss">&times;</button>
+            </li>
+        </ul>
+        <div class="panel-footer">
+            <button id="notification-clear" class="btn btn-secondary">Clear Alerts</button>
+        </div>
     </div>
 
     <!-- Main Workspace Layout -->
     <main class="dashboard-grid-layout">
-        <!-- 3. Welcome Section -->
-        <section id="home" class="content-card welcome-section">
+        
+        <!-- 3. Welcome Banner Section -->
+        <section id="home" class="welcome-banner animate-fade-in">
             <div class="card-glow"></div>
             <div class="welcome-header">
                 <h2>Welcome to SyncFlow AI Workspace</h2>
                 <div class="pulse-indicator">
                     <span class="pulse-dot"></span>
-                    <span class="pulse-text">System Status: Optimal</span>
+                    <span class="pulse-text">System Nodes: Online</span>
                 </div>
             </div>
+            <!-- Typewriter Tagline -->
+            <p class="tagline-typing">
+                Connecting multi-user workspaces with live execution analytics...
+            </p>
             <p class="project-desc">
-                SyncFlow AI is a next-generation real-time collaborative platform engineered for high-performance development teams. 
-                By combining multi-user text & visual canvas editing with live analytical streams, the workspace visualizes team velocity, 
-                eliminates integration gaps, and automates tracking via context-aware AI.
+                SyncFlow AI is an industry-level developer hub fusing concurrent canvas designing, markdown sync editor libraries, 
+                audio workspace channels, and automated telemetry tracking into a single unified high-contrast interface.
             </p>
             <div class="mission-vision-grid">
                 <div class="mv-block vision">
-                    <h3>Our Vision</h3>
-                    <p>To eliminate developer friction by unifying collaboration, knowledge sharing, and machine intelligence in a unified dashboard.</p>
+                    <div class="mv-icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                    </div>
+                    <div>
+                        <h3>Our Vision</h3>
+                        <p>To eliminate task latency by integrating context-aware model feedback loops straight into production workspace screens.</p>
+                    </div>
                 </div>
                 <div class="mv-block mission">
-                    <h3>Our Mission</h3>
-                    <p>Provide secure, sub-millisecond document sync, automated sprint analysis, and predictive workflows for engineering teams.</p>
+                    <div class="mv-icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                    <div>
+                        <h3>Our Mission</h3>
+                        <p>To deliver microsecond websocket synchronization speed, data encryption layers, and automated telemetry telemetry logs.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. Dashboard Statistics -->
-        <section id="dashboard" class="stats-section">
-            <div class="stats-grid">
-                <!-- Stat Card 1 -->
-                <div class="stat-card">
-                    <div class="stat-icon-wrapper blue">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <!-- 8. Image/Banner Slider Carousel Section -->
+        <section class="slider-section content-card animate-slide-up">
+            <div class="slider-container">
+                <!-- Slide 1 -->
+                <div class="slide active">
+                    <div class="slide-content">
+                        <span class="slide-tag">Canvas Sync</span>
+                        <h2>Real-Time Collaborative Sandbox</h2>
+                        <p>Draw layouts, sketch system designs, and structure workflows together with visual conflict resolution algorithms.</p>
+                        <a href="#features" class="slide-action">Explore Canvas Capabilities &rarr;</a>
                     </div>
-                    <div class="stat-details">
-                        <h3>Total Users</h3>
-                        <p class="stat-value">12,450</p>
-                        <span class="stat-change positive">↑ 14% this month</span>
+                    <div class="slide-graphic">
+                        <div class="canvas-mock">
+                            <div class="mock-grid"></div>
+                            <div class="mock-element shape-circle">SVG Engine</div>
+                            <div class="mock-element shape-rect">Analytics Portal</div>
+                            <div class="mock-cursor cursor-purple">Bhuvanesh S</div>
+                            <div class="mock-cursor cursor-cyan">AI Copilot</div>
+                        </div>
                     </div>
                 </div>
-                <!-- Stat Card 2 -->
+                
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <span class="slide-tag">Live Telemetry</span>
+                        <h2>Dynamic Contribution Graphing</h2>
+                        <p>Monitor keystroke distributions, cursor latency spikes, and system response parameters in live graphs.</p>
+                        <a href="#dashboard" class="slide-action">Open Telemetry Panel &rarr;</a>
+                    </div>
+                    <div class="slide-graphic">
+                        <div class="chart-mock">
+                            <div class="chart-axis-y"></div>
+                            <div class="chart-bars">
+                                <div class="chart-bar" style="--height: 50%"><span class="bar-value">50ms</span></div>
+                                <div class="chart-bar highlight" style="--height: 80%"><span class="bar-value">80ms</span></div>
+                                <div class="chart-bar" style="--height: 35%"><span class="bar-value">35ms</span></div>
+                                <div class="chart-bar" style="--height: 90%"><span class="bar-value">90ms</span></div>
+                                <div class="chart-bar" style="--height: 65%"><span class="bar-value">65ms</span></div>
+                            </div>
+                            <div class="chart-axis-x"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <span class="slide-tag">Automation</span>
+                        <h2>Context-Aware Model Pipelines</h2>
+                        <p>Refactor code segments, generate deployment logs, and review repository updates automatically using secure AI pipelines.</p>
+                        <a href="#services" class="slide-action">Configure ML Actions &rarr;</a>
+                    </div>
+                    <div class="slide-graphic">
+                        <div class="ai-mock">
+                            <div class="node central">AI Core</div>
+                            <div class="node-ring"></div>
+                            <div class="node branch-1">Sync</div>
+                            <div class="node branch-2">Log</div>
+                            <div class="node branch-3">Audit</div>
+                            <div class="connection-line line-1"></div>
+                            <div class="connection-line line-2"></div>
+                            <div class="connection-line line-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide Navigation Buttons -->
+            <button id="slider-prev" class="slider-btn prev" aria-label="Previous slide">&#10094;</button>
+            <button id="slider-next" class="slider-btn next" aria-label="Next slide">&#10095;</button>
+
+            <!-- Dots Indicator Indicator -->
+            <div class="slider-dots">
+                <span class="slider-dot active"></span>
+                <span class="slider-dot"></span>
+                <span class="slider-dot"></span>
+            </div>
+        </section>
+
+        <!-- 4. Dashboard Statistics Grid (with dynamic count-ups) -->
+        <section id="dashboard" class="stats-section">
+            <div class="stats-grid">
+                <!-- Card 1 -->
+                <div class="stat-card">
+                    <div class="stat-icon-wrapper blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Total Registered Users</h3>
+                        <!-- JS animated counter -->
+                        <p class="stat-value" id="stat-total-users">0</p>
+                        <span class="stat-change positive">↑ 14% growth monthly</span>
+                    </div>
+                </div>
+                <!-- Card 2 -->
                 <div class="stat-card">
                     <div class="stat-icon-wrapper green">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                     </div>
                     <div class="stat-details">
-                        <h3>Active Users</h3>
-                        <p class="stat-value">3,842</p>
-                        <span class="stat-change pulse-green">● Live Collaboration</span>
+                        <h3>Active Collaborators</h3>
+                        <p class="stat-value" id="stat-active-users">0</p>
+                        <span class="stat-change pulse-green">● Interactive Sync</span>
                     </div>
                 </div>
-                <!-- Stat Card 3 -->
+                <!-- Card 3 -->
                 <div class="stat-card">
                     <div class="stat-icon-wrapper purple">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                     </div>
                     <div class="stat-details">
-                        <h3>Revenue</h3>
-                        <p class="stat-value">$48,250</p>
+                        <h3>Platform Revenue</h3>
+                        <p class="stat-value" id="stat-revenue">0</p>
                         <span class="stat-change positive">↑ 8.2% vs last week</span>
                     </div>
                 </div>
-                <!-- Stat Card 4 -->
+                <!-- Card 4 -->
                 <div class="stat-card">
                     <div class="stat-icon-wrapper orange">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
                     </div>
                     <div class="stat-details">
-                        <h3>Transactions</h3>
-                        <p class="stat-value">1,894</p>
-                        <span class="stat-change">99.98% Success Rate</span>
+                        <h3>Billing Transactions</h3>
+                        <p class="stat-value" id="stat-transactions">0</p>
+                        <span class="stat-change">99.98% pipeline uptime</span>
                     </div>
                 </div>
-                <!-- Stat Card 5 -->
+                <!-- Card 5 -->
                 <div class="stat-card">
                     <div class="stat-icon-wrapper red">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
                     </div>
                     <div class="stat-details">
-                        <h3>Notifications</h3>
-                        <p class="stat-value">12</p>
-                        <span class="stat-change warning">3 Action Required</span>
+                        <h3>Telemetry Notifications</h3>
+                        <p class="stat-value" id="stat-notifications">0</p>
+                        <span class="stat-change warning">3 Actions required</span>
                     </div>
                 </div>
-                <!-- Stat Card 6 -->
+                <!-- Card 6 -->
                 <div class="stat-card">
                     <div class="stat-icon-wrapper cyan">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                     </div>
                     <div class="stat-details">
-                        <h3>Pending Tasks</h3>
-                        <p class="stat-value">8</p>
-                        <span class="stat-change info">4 Assigned to You</span>
+                        <h3>Tasks Assigned</h3>
+                        <p class="stat-value" id="stat-tasks">0</p>
+                        <span class="stat-change info">4 High-priority sprints</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 5. Features Section & 6. Services Section Side-by-Side -->
-        <div class="features-services-grid">
+        <div id="features" class="features-services-grid">
+            
             <!-- Features Content Card -->
             <section class="content-card info-card">
                 <h3>Core Platform Features</h3>
                 <p class="section-intro">SyncFlow AI delivers an integrated environment with high-availability tools built directly into your browser:</p>
                 <ul class="styled-list features-list">
-                    <li>
+                    <li class="list-item-animated">
                         <strong>Sub-millisecond Document Sync:</strong>
                         Collab with your team using robust OT conflict resolution protocols.
                     </li>
-                    <li>
+                    <li class="list-item-animated">
                         <strong>Live Collaboration Analytics:</strong>
                         Visualize cursor velocities, typing distribution, and session activity graphs.
                     </li>
-                    <li>
+                    <li class="list-item-animated">
                         <strong>Context-Aware AI Assistant:</strong>
                         Inline recommendations, PR summarization, and query optimization on demand.
                     </li>
-                    <li>
+                    <li class="list-item-animated">
                         <strong>Unified Dashboard Widgets:</strong>
                         Live tracking of active integrations, workspace metrics, and user feedback logs.
                     </li>
-                    <li>
+                    <li class="list-item-animated">
                         <strong>Proximity-based Huddle Rooms:</strong>
                         Connect using webRTC low-latency audio channels built directly into workspaces.
                     </li>
@@ -202,19 +347,19 @@
                 <h3>Offered Cloud Services</h3>
                 <p class="section-intro">Tailor the workspace platform to your organization using our enterprise integration services:</p>
                 <ol class="styled-list services-list">
-                    <li>
+                    <li class="list-item-animated">
                         <strong>AI Copilot Integration:</strong>
                         Establish proprietary vector index connections to retrieve contextual workspace intelligence.
                     </li>
-                    <li>
+                    <li class="list-item-animated">
                         <strong>Real-time Streaming Analytics Pipeline:</strong>
                         Expose team contribution metrics, file operations, and productivity rates.
                     </li>
-                    <li>
+                    <li class="list-item-animated">
                         <strong>Single-Sign-On (SSO) & Compliance:</strong>
                         Deploy enterprise-grade active directory configurations and SAML integration layers.
                     </li>
-                    <li>
+                    <li class="list-item-animated">
                         <strong>Dedicated Workspace Hosting:</strong>
                         Deploy dedicated workspace instances inside secure Kubernetes virtual private clouds.
                     </li>
@@ -222,8 +367,8 @@
             </section>
         </div>
 
-        <!-- 9. Application Modules Table -->
-        <section id="reports" class="content-card table-section">
+        <!-- 9. Application Modules Table Section -->
+        <section id="reports" class="content-card table-section animate-slide-up">
             <h3>Workspace Application Modules</h3>
             <p class="section-intro">The structure of the SyncFlow AI architecture consists of the following foundational modules:</p>
             <div class="table-container">
@@ -261,12 +406,12 @@
             </div>
         </section>
 
-        <!-- 8. Registration Form -->
-        <section id="about" class="content-card form-section">
+        <!-- 12. Registration Form -->
+        <section class="content-card form-section animate-slide-up">
             <h3>Register Your Team Workspace</h3>
             <p class="section-intro">Onboard your team to get custom API keys, dedicated hosting URLs, and live analytics streams:</p>
             
-            <form action="#" method="POST" class="styled-form">
+            <form action="#" method="POST" class="styled-form" novalidate>
                 <div class="form-grid">
                     <!-- Text Inputs -->
                     <div class="form-group">
@@ -329,8 +474,8 @@
             </form>
         </section>
 
-        <!-- 10. Contact Information -->
-        <section id="contact" class="content-card contact-section">
+        <!-- 17. Contact Section -->
+        <section id="contact" class="content-card contact-section animate-slide-up">
             <h3>Get in Touch with SyncFlow</h3>
             <p class="section-intro">Have questions regarding workspace encryption, pricing models, or customer support? Reach out:</p>
             <div class="contact-details-grid">
@@ -384,22 +529,27 @@
         </section>
     </main>
 
-    <!-- 11. Footer Section -->
+    <!-- 16. Floating Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" title="Go to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <!-- 18. Footer Section -->
     <footer class="app-footer">
-        <p>&copy; 2026 SyncFlow AI. All rights reserved. | Designed with ❤️ by <span class="footer-designer">Bhuvanesh S</span> (Reg No: 23IT101)</p>
+        <div class="footer-container">
+            <p>&copy; 2026 SyncFlow AI. All rights reserved. | Designed by <span class="footer-designer">Bhuvanesh S</span> (Reg No: 23IT101)</p>
+            <div class="footer-icons">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </div>
     </footer>
 
-    <!-- Simple Page Scroll Script for active items navigation -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    navItems.forEach(i => i.classList.remove('active'));
-                    item.classList.add('active');
-                });
-            });
-        });
-    </script>
+    <!-- App Engine JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
