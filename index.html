@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyncFlow AI - Collaborative Workspace Dashboard</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 1. Header Section -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <!-- Inline SVG Logo for Vector Resolution -->
+                <svg class="app-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <div class="logo-text">
+                    <span class="app-name">SyncFlow <span class="accent-text">AI</span></span>
+                    <span class="app-tagline">AI-Powered Real-Time Collaborative Workspace with Live Analytics</span>
+                </div>
+            </div>
+            <div class="student-meta">
+                <div class="meta-badge">
+                    <span class="meta-label">Developer</span>
+                    <span class="meta-value">Bhuvanesh S</span>
+                </div>
+                <div class="meta-badge">
+                    <span class="meta-label">Register No.</span>
+                    <span class="meta-value">23IT101</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#home" class="nav-item active">Home</a>
+                <a href="#dashboard" class="nav-item">Dashboard</a>
+                <a href="#services" class="nav-item">Services</a>
+                <a href="#reports" class="nav-item">Reports</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </div>
+            <a href="#logout" class="logout-btn">
+                <span>Logout</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- 7. Latest Updates (Announcements Marquee) -->
+    <div class="ticker-wrapper">
+        <span class="ticker-label">LATEST UPDATES</span>
+        <marquee class="ticker-content" behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
+            <span>🚀 SyncFlow AI v2.4.0 is now live! Introducing lower latency collaborative workspaces and advanced analytics pipeline.</span>
+            <span>⚠️ Scheduled maintenance on July 5th, 2026, from 02:00 to 04:00 UTC (No workspace downtime expected).</span>
+            <span>💡 Quick Tip: Use "/ai prompt" inside the collaborative canvas to summon the code generation module instantly.</span>
+        </marquee>
+    </div>
+
+    <!-- Main Workspace Layout -->
+    <main class="dashboard-grid-layout">
+        <!-- 3. Welcome Section -->
+        <section id="home" class="content-card welcome-section">
+            <div class="card-glow"></div>
+            <div class="welcome-header">
+                <h2>Welcome to SyncFlow AI Workspace</h2>
+                <div class="pulse-indicator">
+                    <span class="pulse-dot"></span>
+                    <span class="pulse-text">System Status: Optimal</span>
+                </div>
+            </div>
+            <p class="project-desc">
+                SyncFlow AI is a next-generation real-time collaborative platform engineered for high-performance development teams. 
+                By combining multi-user text & visual canvas editing with live analytical streams, the workspace visualizes team velocity, 
+                eliminates integration gaps, and automates tracking via context-aware AI.
+            </p>
+            <div class="mission-vision-grid">
+                <div class="mv-block vision">
+                    <h3>Our Vision</h3>
+                    <p>To eliminate developer friction by unifying collaboration, knowledge sharing, and machine intelligence in a unified dashboard.</p>
+                </div>
+                <div class="mv-block mission">
+                    <h3>Our Mission</h3>
+                    <p>Provide secure, sub-millisecond document sync, automated sprint analysis, and predictive workflows for engineering teams.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Dashboard Statistics -->
+        <section id="dashboard" class="stats-section">
+            <div class="stats-grid">
+                <!-- Stat Card 1 -->
+                <div class="stat-card">
+                    <div class="stat-icon-wrapper blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Total Users</h3>
+                        <p class="stat-value">12,450</p>
+                        <span class="stat-change positive">↑ 14% this month</span>
+                    </div>
+                </div>
+                <!-- Stat Card 2 -->
+                <div class="stat-card">
+                    <div class="stat-icon-wrapper green">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Active Users</h3>
+                        <p class="stat-value">3,842</p>
+                        <span class="stat-change pulse-green">● Live Collaboration</span>
+                    </div>
+                </div>
+                <!-- Stat Card 3 -->
+                <div class="stat-card">
+                    <div class="stat-icon-wrapper purple">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Revenue</h3>
+                        <p class="stat-value">$48,250</p>
+                        <span class="stat-change positive">↑ 8.2% vs last week</span>
+                    </div>
+                </div>
+                <!-- Stat Card 4 -->
+                <div class="stat-card">
+                    <div class="stat-icon-wrapper orange">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Transactions</h3>
+                        <p class="stat-value">1,894</p>
+                        <span class="stat-change">99.98% Success Rate</span>
+                    </div>
+                </div>
+                <!-- Stat Card 5 -->
+                <div class="stat-card">
+                    <div class="stat-icon-wrapper red">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Notifications</h3>
+                        <p class="stat-value">12</p>
+                        <span class="stat-change warning">3 Action Required</span>
+                    </div>
+                </div>
+                <!-- Stat Card 6 -->
+                <div class="stat-card">
+                    <div class="stat-icon-wrapper cyan">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Pending Tasks</h3>
+                        <p class="stat-value">8</p>
+                        <span class="stat-change info">4 Assigned to You</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Features Section & 6. Services Section Side-by-Side -->
+        <div class="features-services-grid">
+            <!-- Features Content Card -->
+            <section class="content-card info-card">
+                <h3>Core Platform Features</h3>
+                <p class="section-intro">SyncFlow AI delivers an integrated environment with high-availability tools built directly into your browser:</p>
+                <ul class="styled-list features-list">
+                    <li>
+                        <strong>Sub-millisecond Document Sync:</strong>
+                        Collab with your team using robust OT conflict resolution protocols.
+                    </li>
+                    <li>
+                        <strong>Live Collaboration Analytics:</strong>
+                        Visualize cursor velocities, typing distribution, and session activity graphs.
+                    </li>
+                    <li>
+                        <strong>Context-Aware AI Assistant:</strong>
+                        Inline recommendations, PR summarization, and query optimization on demand.
+                    </li>
+                    <li>
+                        <strong>Unified Dashboard Widgets:</strong>
+                        Live tracking of active integrations, workspace metrics, and user feedback logs.
+                    </li>
+                    <li>
+                        <strong>Proximity-based Huddle Rooms:</strong>
+                        Connect using webRTC low-latency audio channels built directly into workspaces.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Services Content Card -->
+            <section id="services" class="content-card info-card">
+                <h3>Offered Cloud Services</h3>
+                <p class="section-intro">Tailor the workspace platform to your organization using our enterprise integration services:</p>
+                <ol class="styled-list services-list">
+                    <li>
+                        <strong>AI Copilot Integration:</strong>
+                        Establish proprietary vector index connections to retrieve contextual workspace intelligence.
+                    </li>
+                    <li>
+                        <strong>Real-time Streaming Analytics Pipeline:</strong>
+                        Expose team contribution metrics, file operations, and productivity rates.
+                    </li>
+                    <li>
+                        <strong>Single-Sign-On (SSO) & Compliance:</strong>
+                        Deploy enterprise-grade active directory configurations and SAML integration layers.
+                    </li>
+                    <li>
+                        <strong>Dedicated Workspace Hosting:</strong>
+                        Deploy dedicated workspace instances inside secure Kubernetes virtual private clouds.
+                    </li>
+                </ol>
+            </section>
+        </div>
+
+        <!-- 9. Application Modules Table -->
+        <section id="reports" class="content-card table-section">
+            <h3>Workspace Application Modules</h3>
+            <p class="section-intro">The structure of the SyncFlow AI architecture consists of the following foundational modules:</p>
+            <div class="table-container">
+                <table class="modules-table">
+                    <thead>
+                        <tr>
+                            <th>Module ID</th>
+                            <th>Module Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>SF-COLLAB-01</code></td>
+                            <td><strong>SyncCanvas Engine</strong></td>
+                            <td>Synchronizes document nodes, shapes, and active inputs between clients using optimized WebSockets.</td>
+                        </tr>
+                        <tr>
+                            <td><code>SF-ANALYTICS-02</code></td>
+                            <td><strong>Telemetry & Analytics</strong></td>
+                            <td>Captures client latency rates, keystrokes, and workspace changes to update live charts instantly.</td>
+                        </tr>
+                        <tr>
+                            <td><code>SF-AI-03</code></td>
+                            <td><strong>Cognitive Agent Suite</strong></td>
+                            <td>Manages pipeline requests to Large Language Models (LLMs) to perform automated tasks and code auditing.</td>
+                        </tr>
+                        <tr>
+                            <td><code>SF-AUTH-04</code></td>
+                            <td><strong>Secure Access Hub</strong></td>
+                            <td>Handles end-to-end user tokens, role authorizations, session lifecycles, and SAML handshakes.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 8. Registration Form -->
+        <section id="about" class="content-card form-section">
+            <h3>Register Your Team Workspace</h3>
+            <p class="section-intro">Onboard your team to get custom API keys, dedicated hosting URLs, and live analytics streams:</p>
+            
+            <form action="#" method="POST" class="styled-form">
+                <div class="form-grid">
+                    <!-- Text Inputs -->
+                    <div class="form-group">
+                        <label for="reg-name">Full Name</label>
+                        <input type="text" id="reg-name" name="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-email">Work Email</label>
+                        <input type="email" id="reg-email" name="email" placeholder="john@company.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-phone">Phone Number</label>
+                        <input type="tel" id="reg-phone" name="phone" placeholder="+1 (555) 123-4567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-password">Password</label>
+                        <input type="password" id="reg-password" name="password" placeholder="••••••••" required>
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div class="form-group">
+                        <label for="reg-dob">Date of Birth</label>
+                        <input type="date" id="reg-dob" name="dob" required>
+                    </div>
+
+                    <!-- Gender Selection -->
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="gender-radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="male" checked>
+                                <span>Male</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="female">
+                                <span>Female</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="other">
+                                <span>Other</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Textarea for Address -->
+                <div class="form-group full-width">
+                    <label for="reg-address">Company Headquarters Address</label>
+                    <textarea id="reg-address" name="address" rows="3" placeholder="Suite 400, 123 Tech Blvd, Silicon Valley, CA" required></textarea>
+                </div>
+
+                <!-- Form Controls -->
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">Onboard Team</button>
+                    <button type="reset" class="btn btn-secondary">Reset Fields</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- 10. Contact Information -->
+        <section id="contact" class="content-card contact-section">
+            <h3>Get in Touch with SyncFlow</h3>
+            <p class="section-intro">Have questions regarding workspace encryption, pricing models, or customer support? Reach out:</p>
+            <div class="contact-details-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p><a href="mailto:support@syncflow.ai">support@syncflow.ai</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
+                    <div>
+                        <h4>Call Support</h4>
+                        <p><a href="tel:+15550199">+1 (555) 019-9821</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div>
+                        <h4>Headquarters</h4>
+                        <p>Tech Park Tower 5, 4th Floor, Innovation Way, CA</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="social-links-area">
+                <span class="social-title">Follow our telemetry updates:</span>
+                <div class="social-buttons">
+                    <a href="https://github.com" class="social-btn github" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://twitter.com" class="social-btn twitter" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="https://linkedin.com" class="social-btn linkedin" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 11. Footer Section -->
+    <footer class="app-footer">
+        <p>&copy; 2026 SyncFlow AI. All rights reserved. | Designed with ❤️ by <span class="footer-designer">Bhuvanesh S</span> (Reg No: 23IT101)</p>
+    </footer>
+
+    <!-- Simple Page Scroll Script for active items navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    navItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
