@@ -4,48 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SyncFlow AI - Advanced HTML5 Forms, Drag & Drop and Web Storage Studio</title>
-    <meta name="description" content="Professional Webpage built with HTML5 Semantic Elements, Advanced Form Controls, Drag and Drop API, and Web Storage (Local & Session Storage).">
-    <!-- Google Fonts for premium typography -->
+    <meta name="description" content="SyncFlow AI - Professional Collaborative Workspace demonstrating Advanced HTML5 Form Elements, Drag & Drop API, Web Storage, and Multi-CSS Stylesheets.">
+    <!-- Google Fonts for typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Main Stylesheet -->
+    
+    <!-- 1. EXTERNAL STYLESHEET DEMONSTRATION (Requirement 21) -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- 2. INTERNAL STYLESHEET DEMONSTRATION (Requirements 25, 31, 32) -->
+    <style>
+        /* --- INTERNAL CSS DEMONSTRATION BLOCK --- */
+        
+        /* Requirement 25: CSS Pseudo Element ::selection */
+        ::selection {
+            background: #6366f1;
+            color: #ffffff;
+            text-shadow: none;
+        }
+
+        /* Requirement 25: CSS Pseudo Elements ::first-letter & ::first-line */
+        .workspace-intro::first-letter {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            float: left;
+            line-height: 1;
+            margin-right: 0.5rem;
+            color: var(--primary);
+            text-shadow: 0 2px 8px var(--primary-glow);
+        }
+
+        .workspace-intro::first-line {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+        }
+
+        /* Requirement 32: Pure CSS Tooltips ([data-tooltip]) using ::before & ::after */
+        [data-tooltip] {
+            position: relative;
+            cursor: pointer;
+        }
+
+        [data-tooltip]::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            background: rgba(15, 23, 42, 0.92);
+            color: #ffffff;
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 100;
+        }
+
+        [data-tooltip]::after {
+            content: '';
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(15, 23, 42, 0.92) transparent transparent transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+        }
+
+        [data-tooltip]:hover::before {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        [data-tooltip]:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Requirement 31: CSS Progress Bars with Keyframe Animations */
+        .progress-bar-wrapper {
+            background: var(--bg-base);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 0.85rem 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .progress-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .progress-track {
+            height: 10px;
+            background: var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 1.5s ease-in-out;
+        }
+
+        .progress-fill.fill-78 { width: 78%; animation: fill78 2s ease-out forwards; }
+        .progress-fill.fill-64 { width: 64%; animation: fill64 2s ease-out forwards; }
+        .progress-fill.fill-99 { width: 99%; animation: fill99 2s ease-out forwards; }
+
+        @keyframes fill78 { from { width: 0%; } to { width: 78%; } }
+        @keyframes fill64 { from { width: 0%; } to { width: 64%; } }
+        @keyframes fill99 { from { width: 0%; } to { width: 99%; } }
+    </style>
 </head>
 <body>
 
     <!-- ==========================================
-         1. HTML5 HEADER SECTION
+         1. APPLICATION HEADER SECTION
          ========================================== -->
     <header class="app-header">
         <div class="header-container">
             <div class="logo-area">
-                <!-- Inline SVG Logo for High Resolution Visual Aesthetics -->
+                <!-- Inline SVG Logo for High Resolution Vector Graphics -->
                 <svg class="app-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" id="app-logo-svg">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                 </svg>
                 <div class="logo-text">
-                    <h1 class="app-name">SyncFlow <span class="accent-text">AI</span></h1>
-                    <span class="app-tagline">Professional Web Suite featuring Advanced HTML5 Controls, Drag-Drop & Web Storage</span>
+                    <!-- 3. INLINE CSS DEMONSTRATION -->
+                    <h1 class="app-name" style="font-family: 'Outfit', sans-serif; letter-spacing: 0.5px;">SyncFlow <span class="accent-text" style="color: var(--primary); font-weight: 800;">AI</span></h1>
+                    <span class="app-tagline" style="font-size: 0.8rem; opacity: 0.9;">AI-Powered Collaborative Workspace & Development Suite</span>
                 </div>
             </div>
             
             <div class="header-right">
-                <!-- Live Date & Time Display -->
+                <!-- 9. Dynamic Real-Time Date & Clock Display -->
                 <div class="clock-display" id="current-time">Loading system clock...</div>
                 
                 <div class="student-meta">
-                    <div class="meta-badge">
+                    <div class="meta-badge" data-tooltip="Course: 23IT721 - Full Stack Lab">
                         <span class="meta-label">Developer</span>
                         <span class="meta-value">Bhuvanesh S</span>
                     </div>
-                    <div class="meta-badge">
+                    <div class="meta-badge" data-tooltip="Student Register Number">
                         <span class="meta-label">Register No.</span>
                         <span class="meta-value">23IT101</span>
-                    </div>
-                    <div class="meta-badge">
-                        <span class="meta-label">Course Code</span>
-                        <span class="meta-value">23IT721</span>
                     </div>
                 </div>
             </div>
@@ -53,30 +175,34 @@
     </header>
 
     <!-- ==========================================
-         2. NAVIGATION MENU
+         2. NAVIGATION BAR (Requirement 2)
+         Navigation items: Home, About, Dashboard, Features, Services, Registration, Drag & Drop, Storage, Contact, Help, Logout
          ========================================== -->
     <nav class="navbar" aria-label="Main Navigation">
         <div class="nav-container">
             <div class="nav-links">
-                <a href="#home" class="nav-item active" id="nav-home">Home</a>
-                <a href="#about" class="nav-item" id="nav-about">About</a>
-                <a href="#features" class="nav-item" id="nav-features">Features</a>
-                <a href="#registration" class="nav-item" id="nav-registration">Registration</a>
-                <a href="#drag-drop" class="nav-item" id="nav-dragdrop">Drag & Drop</a>
-                <a href="#storage" class="nav-item" id="nav-storage">Storage</a>
-                <a href="#contact" class="nav-item" id="nav-contact">Contact</a>
-                <a href="#help" class="nav-item" id="nav-help">Help</a>
+                <a href="#home" class="nav-item active" id="nav-home" data-tooltip="Go to Home Banner">Home</a>
+                <a href="#about" class="nav-item" id="nav-about" data-tooltip="About Workspace Specs">About</a>
+                <a href="#dashboard" class="nav-item" id="nav-dashboard" data-tooltip="View Live Stats Dashboard">Dashboard</a>
+                <a href="#features" class="nav-item" id="nav-features" data-tooltip="Core Workspace Features">Features</a>
+                <a href="#services" class="nav-item" id="nav-services" data-tooltip="Offered Cloud Services">Services</a>
+                <a href="#registration" class="nav-item" id="nav-registration" data-tooltip="Advanced HTML5 Form">Registration</a>
+                <a href="#drag-drop" class="nav-item" id="nav-dragdrop" data-tooltip="HTML5 Drag & Drop API">Drag & Drop</a>
+                <a href="#storage" class="nav-item" id="nav-storage" data-tooltip="Local & Session Web Storage">Storage</a>
+                <a href="#contact" class="nav-item" id="nav-contact" data-tooltip="Contact & Support">Contact</a>
+                <a href="#help" class="nav-item" id="nav-help" data-tooltip="User Manual & Docs">Help</a>
+                <a href="#logout" class="logout-btn nav-item" id="nav-logout" onclick="alert('SyncFlow AI Workspace Session Closed!'); return false;">Logout</a>
             </div>
             
             <div class="nav-actions">
-                <!-- Theme Switcher Control -->
-                <button id="theme-toggle" class="nav-action-btn theme-btn" title="Toggle Light/Dark Console">
+                <!-- 10. Theme Switcher Control (Light/Dark Console) -->
+                <button id="theme-toggle" class="nav-action-btn theme-btn" title="Toggle Light/Dark Console" data-tooltip="Switch Console Theme">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                     <span>Dark Console</span>
                 </button>
                 
-                <!-- Theme Customizer Control -->
-                <button id="customizer-trigger" class="nav-action-btn customizer-btn" title="Open Color Customizer">
+                <!-- Theme Color Palette Customizer Button -->
+                <button id="customizer-trigger" class="nav-action-btn customizer-btn" title="Open Color Customizer" data-tooltip="Change Accent Palette">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10"></circle>
                         <path d="M12 2a7 7 0 0 0-7 7c0 3.87 3.13 7 7 7a1 1 0 0 0 1-1V14a1 1 0 0 1 1-1h1.5a2.5 2.5 0 0 0 2.5-2.5V9a7 7 0 0 0-7-7z"></path>
@@ -84,8 +210,8 @@
                     <span>Customize UI</span>
                 </button>
                 
-                <!-- Telemetry Alerts Drawer Trigger -->
-                <a href="#notifications" id="notification-trigger" class="nav-action-btn notify-btn" title="Notifications drawer">
+                <!-- 11. Telemetry Alerts Drawer Trigger -->
+                <a href="#notifications" id="notification-trigger" class="nav-action-btn notify-btn" title="Notifications drawer" data-tooltip="Live Telemetry Alerts">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
                     <span id="notification-badge" class="badge">3</span>
                 </a>
@@ -93,17 +219,17 @@
         </div>
     </nav>
 
-    <!-- Notification Drawer Slide Panel -->
+    <!-- 11. Notification Drawer Slide Panel -->
     <div id="notification-panel" class="notification-panel" aria-hidden="true">
         <div class="panel-header">
-            <h3>System Telemetry Alerts</h3>
+            <h3>Workspace Telemetry Alerts</h3>
             <button id="notification-close" class="panel-close-btn" aria-label="Close Alerts">&times;</button>
         </div>
         <ul class="notification-list">
             <li class="notification-item">
                 <span class="notify-icon purple">⚡</span>
                 <div class="notify-info">
-                    <p>SyncFlow HTML5 Form Validation Engine Active</p>
+                    <p>SyncFlow AI v2.4.0 Engine Active</p>
                     <span class="notify-time">2 mins ago</span>
                 </div>
                 <button class="btn-dismiss" aria-label="Dismiss Alert">&times;</button>
@@ -111,7 +237,7 @@
             <li class="notification-item">
                 <span class="notify-icon green">💾</span>
                 <div class="notify-info">
-                    <p>Web Storage API Ready (Local & Session Storage)</p>
+                    <p>Web Storage API Initialized (Local & Session)</p>
                     <span class="notify-time">15 mins ago</span>
                 </div>
                 <button class="btn-dismiss" aria-label="Dismiss Alert">&times;</button>
@@ -119,7 +245,7 @@
             <li class="notification-item">
                 <span class="notify-icon blue">🎯</span>
                 <div class="notify-info">
-                    <p>HTML5 Drag & Drop Module Listener Initialized</p>
+                    <p>HTML5 Drag & Drop Workspace Handlers Live</p>
                     <span class="notify-time">1 hour ago</span>
                 </div>
                 <button class="btn-dismiss" aria-label="Dismiss Alert">&times;</button>
@@ -140,40 +266,19 @@
             <div class="customizer-section">
                 <h4>Console Base Theme</h4>
                 <div class="theme-mode-grid">
-                    <button class="theme-mode-btn" data-mode="light">
-                        <div class="mode-preview preview-light"></div>
-                        <span>Sleek Light</span>
-                    </button>
-                    <button class="theme-mode-btn" data-mode="dark">
-                        <div class="mode-preview preview-dark"></div>
-                        <span>Cyber Dark</span>
-                    </button>
-                    <button class="theme-mode-btn" data-mode="amoled">
-                        <div class="mode-preview preview-amoled"></div>
-                        <span>Deep Space</span>
-                    </button>
+                    <button class="theme-mode-btn" data-mode="light"><span>Sleek Slate (Light)</span></button>
+                    <button class="theme-mode-btn" data-mode="dark"><span>Cyber Slate (Dark)</span></button>
+                    <button class="theme-mode-btn" data-mode="amoled"><span>Deep Space (AMOLED)</span></button>
                 </div>
             </div>
             
             <div class="customizer-section">
                 <h4>Accent Color Scheme</h4>
                 <div class="accent-color-grid">
-                    <button class="accent-btn" data-accent="default" title="Indigo Accent">
-                        <span class="color-bubble color-default"></span>
-                        <span class="accent-label">Indigo</span>
-                    </button>
-                    <button class="accent-btn" data-accent="blue" title="Electric Blue">
-                        <span class="color-bubble color-blue"></span>
-                        <span class="accent-label">Blue</span>
-                    </button>
-                    <button class="accent-btn" data-accent="green" title="Emerald Green">
-                        <span class="color-bubble color-green"></span>
-                        <span class="accent-label">Green</span>
-                    </button>
-                    <button class="accent-btn" data-accent="pink" title="Rose Pink">
-                        <span class="color-bubble color-pink"></span>
-                        <span class="accent-label">Pink</span>
-                    </button>
+                    <button class="accent-btn" data-accent="default" title="Indigo & Cyan"><span class="color-bubble color-default"></span><span>Indigo Accent</span></button>
+                    <button class="accent-btn" data-accent="blue" title="Electric Blue"><span class="color-bubble color-blue"></span><span>Blue</span></button>
+                    <button class="accent-btn" data-accent="green" title="Emerald Green"><span class="color-bubble color-green"></span><span>Green</span></button>
+                    <button class="accent-btn" data-accent="pink" title="Rose Pink"><span class="color-bubble color-pink"></span><span>Pink</span></button>
                 </div>
             </div>
         </div>
@@ -189,31 +294,35 @@
         <!-- Main Content Area -->
         <main class="main-content" id="main-content">
             
-            <!-- HOME / WELCOME SECTION -->
+            <!-- 3. WELCOME BANNER SECTION -->
             <section id="home" class="welcome-banner animate-fade-in">
                 <div class="card-glow"></div>
                 <div class="welcome-header">
-                    <h2>Welcome to SyncFlow AI Web Suite</h2>
+                    <h2>Welcome to SyncFlow AI Workspace</h2>
                     <div class="pulse-indicator">
                         <span class="pulse-dot"></span>
-                        <span class="pulse-text">HTML5 Engine: Operational</span>
+                        <span class="pulse-text">System Nodes: Online</span>
                     </div>
                 </div>
+                
+                <!-- 14. Typing Effect Tagline Animation -->
                 <p class="tagline-typing">
-                    Demonstrating Advanced Form Validation, HTML5 Drag & Drop API, and Client-Side Web Storage...
+                    Connecting multi-user workspaces with live execution analytics...
                 </p>
-                <p class="project-desc">
-                    SyncFlow AI is an enterprise-grade web platform engineered to demonstrate modern HTML5 standards. 
-                    It seamlessly integrates advanced inputs, interactive drag-and-drop workspace cards, and persistent storage mechanisms into a high-contrast responsive interface.
+
+                <!-- Inline CSS Demonstration -->
+                <p class="project-desc workspace-intro" style="line-height: 1.7; color: var(--text-secondary);">
+                    SyncFlow AI is an industry-level developer hub fusing concurrent canvas designing, markdown sync editor libraries, audio workspace channels, and automated telemetry tracking into a single unified high-contrast interface.
                 </p>
+
                 <div class="mission-vision-grid">
                     <div class="mv-block vision">
                         <div class="mv-icon-box">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                         </div>
                         <div>
-                            <h3>Form & Storage Objectives</h3>
-                            <p>To provide accessible, user-friendly data entry with built-in client validation, editable notes, and instant state retrieval.</p>
+                            <h3>Our Vision</h3>
+                            <p>To eliminate task latency by integrating context-aware model feedback loops straight into production workspace screens.</p>
                         </div>
                     </div>
                     <div class="mv-block mission">
@@ -221,53 +330,54 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                         </div>
                         <div>
-                            <h3>Interactive Drag Objectives</h3>
-                            <p>To implement standard HTML5 Drag & Drop API event listeners (`dragstart`, `dragover`, `drop`) for intuitive user interactions.</p>
+                            <h3>Our Mission</h3>
+                            <p>To deliver microsecond websocket synchronization speed, data encryption layers, and automated telemetry tracking.</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- 15. Action Buttons with CSS Transitions -->
+                <div class="banner-actions" style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#registration" class="btn btn-primary" data-tooltip="Onboard Team to SyncFlow Workspace">Onboard Workspace</a>
+                    <a href="#drag-drop" class="btn btn-secondary" data-tooltip="Test Drag & Drop Sandbox">Open Drag & Drop Sandbox</a>
+                </div>
             </section>
 
-            <!-- INTRODUCTION & ABOUT SECTION (Requirement 4) -->
+            <!-- ABOUT SECTION -->
             <section id="about" class="content-card info-card animate-slide-up">
                 <div class="section-title-wrapper">
-                    <span class="section-badge">Semantic HTML5</span>
-                    <h2>About This Web Application</h2>
+                    <span class="section-badge">Semantic HTML5 Architecture</span>
+                    <h2>About SyncFlow AI Workspace</h2>
                 </div>
                 <article class="about-article">
-                    <h3>Application Architecture & Design Rationale</h3>
                     <p>
                         This application demonstrates standard HTML5 semantic architecture. By utilizing elements like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, and <code>&lt;footer&gt;</code>, the document ensures maximum accessibility, search engine optimization (SEO), and clean code maintainability.
                     </p>
-                    <p>
-                        Key HTML5 features showcased in this lab project include:
-                    </p>
                     <ul class="styled-list features-list">
-                        <li><strong>Advanced Input Types:</strong> Native HTML5 controls for Email, Tel (with pattern validation), Date, Time, and Number (with min/max constraints).</li>
-                        <li><strong>Interactive Content Editing:</strong> Rich text notes using <code>contenteditable="true"</code> with browser <code>spellcheck="true"</code> integration.</li>
-                        <li><strong>Drag and Drop API:</strong> Visual workspace modules that can be dragged into dynamic target drop zones using JavaScript drag events.</li>
-                        <li><strong>Web Storage API:</strong> Dual storage architecture using <code>localStorage</code> (permanent user state) and <code>sessionStorage</code> (temporary session tokens).</li>
+                        <li><strong>Advanced HTML5 Form Controls:</strong> Validated fields for Name, Email, Phone, Date, Preferred Time, Age, Gender, Skills, Address, and Contenteditable Notes with Spellcheck.</li>
+                        <li><strong>HTML5 Drag & Drop API:</strong> Draggable module cards (`draggable="true"`) with dragstart, dragover, dragleave, and drop event handlers.</li>
+                        <li><strong>Web Storage API:</strong> Persistent client-side data management using `localStorage` and temporary session state using `sessionStorage`.</li>
+                        <li><strong>Multi-CSS Demonstration:</strong> Inline CSS, Internal `<style>` with pseudo-elements, and External `style.css` design system.</li>
                     </ul>
                 </article>
             </section>
 
-            <!-- IMAGE SLIDER CAROUSEL SECTION -->
+            <!-- 8. BANNER SLIDER CAROUSEL SECTION -->
             <section class="slider-section content-card animate-slide-up">
                 <div class="slider-container">
                     <!-- Slide 1 -->
                     <div class="slide active">
                         <div class="slide-content">
-                            <span class="slide-tag">Form Controls</span>
-                            <h2>Advanced HTML5 Form Elements</h2>
-                            <p>Validated fields for Name, Email, Phone, Date, Preferred Time, Age, Gender, Skills, Address, and Editable Notes.</p>
-                            <a href="#registration" class="slide-action">Open Registration Form &rarr;</a>
+                            <span class="slide-tag">Canvas Sync</span>
+                            <h2>Real-Time Collaborative Sandbox</h2>
+                            <p>Draw layouts, sketch system designs, and structure workflows together with visual conflict resolution algorithms.</p>
+                            <a href="#features" class="slide-action">Explore Canvas Capabilities &rarr;</a>
                         </div>
                         <div class="slide-graphic">
                             <div class="canvas-mock">
                                 <div class="mock-grid"></div>
-                                <div class="mock-element shape-circle">HTML5 Form</div>
-                                <div class="mock-element shape-rect">Validation Engine</div>
-                                <div class="mock-cursor cursor-purple">Bhuvanesh S</div>
+                                <div class="mock-element shape-circle">SVG Engine</div>
+                                <div class="mock-element shape-rect">Analytics Portal</div>
                             </div>
                         </div>
                     </div>
@@ -275,17 +385,17 @@
                     <!-- Slide 2 -->
                     <div class="slide">
                         <div class="slide-content">
-                            <span class="slide-tag">Interactive API</span>
-                            <h2>HTML5 Drag & Drop Workspace</h2>
-                            <p>Move component cards across interactive target dropzones with dragstart, dragover, dragleave, and drop event handlers.</p>
-                            <a href="#drag-drop" class="slide-action">Test Drag & Drop &rarr;</a>
+                            <span class="slide-tag">Live Telemetry</span>
+                            <h2>Dynamic Contribution Graphing</h2>
+                            <p>Monitor keystroke distributions, cursor latency spikes, and system response parameters in live graphs.</p>
+                            <a href="#dashboard" class="slide-action">Open Telemetry Panel &rarr;</a>
                         </div>
                         <div class="slide-graphic">
                             <div class="chart-mock">
                                 <div class="chart-bars">
-                                    <div class="chart-bar" style="--height: 60%"><span class="bar-value">Drag</span></div>
-                                    <div class="chart-bar highlight" style="--height: 90%"><span class="bar-value">Drop</span></div>
-                                    <div class="chart-bar" style="--height: 75%"><span class="bar-value">Sync</span></div>
+                                    <div class="chart-bar" style="--height: 50%"><span class="bar-value">50ms</span></div>
+                                    <div class="chart-bar highlight" style="--height: 80%"><span class="bar-value">80ms</span></div>
+                                    <div class="chart-bar" style="--height: 65%"><span class="bar-value">65ms</span></div>
                                 </div>
                             </div>
                         </div>
@@ -294,19 +404,17 @@
                     <!-- Slide 3 -->
                     <div class="slide">
                         <div class="slide-content">
-                            <span class="slide-tag">Client Storage</span>
-                            <h2>Local & Session Web Storage</h2>
-                            <p>Store, retrieve, and clear client-side data using permanent localStorage and temporary sessionStorage APIs.</p>
-                            <a href="#storage" class="slide-action">Manage Web Storage &rarr;</a>
+                            <span class="slide-tag">Automation</span>
+                            <h2>Context-Aware Model Pipelines</h2>
+                            <p>Refactor code segments, generate deployment logs, and review repository updates automatically using secure AI pipelines.</p>
+                            <a href="#services" class="slide-action">Configure ML Actions &rarr;</a>
                         </div>
                         <div class="slide-graphic">
                             <div class="ai-mock">
-                                <div class="node central">Web Storage</div>
+                                <div class="node central">AI Core</div>
                                 <div class="node-ring"></div>
-                                <div class="node branch-1">Local</div>
-                                <div class="node branch-2">Session</div>
-                                <div class="connection-line line-1"></div>
-                                <div class="connection-line line-2"></div>
+                                <div class="node branch-1">Sync</div>
+                                <div class="node branch-2">Audit</div>
                             </div>
                         </div>
                     </div>
@@ -322,259 +430,301 @@
                 </div>
             </section>
 
-            <!-- FEATURES & SERVICES SECTION -->
+            <!-- 4. DASHBOARD CARDS & 5. DYNAMIC STATISTICS -->
+            <section id="dashboard" class="stats-section animate-slide-up">
+                <div class="section-title-wrapper">
+                    <span class="section-badge">Live System Metrics</span>
+                    <h2>Workspace Operations Telemetry</h2>
+                </div>
+                
+                <div class="stats-grid">
+                    <!-- Card 1 -->
+                    <div class="stat-card" data-tooltip="Total Registered Team Members">
+                        <div class="stat-icon-wrapper blue">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Total Registered Users</h3>
+                            <p class="stat-value" id="stat-total-users">0</p>
+                            <span class="stat-change positive">↑ 14% growth monthly</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="stat-card" data-tooltip="Active Concurrent Collaborators">
+                        <div class="stat-icon-wrapper green">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Active Collaborators</h3>
+                            <p class="stat-value" id="stat-active-users">0</p>
+                            <span class="stat-change positive">● Interactive Sync</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="stat-card" data-tooltip="Monthly Recurring Revenue">
+                        <div class="stat-icon-wrapper purple">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Platform Revenue</h3>
+                            <p class="stat-value" id="stat-revenue">0</p>
+                            <span class="stat-change positive">↑ 8.2% vs last week</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="stat-card" data-tooltip="Active Sprint Tasks Assigned">
+                        <div class="stat-icon-wrapper cyan">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Tasks Assigned</h3>
+                            <p class="stat-value" id="stat-tasks">0</p>
+                            <span class="stat-change info">4 High-priority sprints</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 31. CSS Progress Bars Demonstration -->
+                <div style="margin-top: 1.5rem;">
+                    <div class="progress-bar-wrapper">
+                        <div class="progress-bar-label">
+                            <span>Telemetry Node Load</span>
+                            <span>78% Capacity</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill fill-78"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-wrapper">
+                        <div class="progress-bar-label">
+                            <span>Memory & Storage Quota</span>
+                            <span>64% Utilized</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill fill-64"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-wrapper">
+                        <div class="progress-bar-label">
+                            <span>WebSocket System Uptime</span>
+                            <span>99.98% Operational</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill fill-99"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. FEATURES SECTION & 7. SERVICES SECTION -->
             <section id="features" class="features-services-grid animate-slide-up">
+                <!-- Features Card -->
                 <div class="content-card info-card">
-                    <h3>Assignment 1 Highlights</h3>
-                    <p class="section-intro">Advanced Form Elements & Validation Implementation:</p>
+                    <h3>Core Platform Features</h3>
+                    <p class="section-intro">SyncFlow AI delivers high-availability tools built directly into your browser:</p>
                     <ul class="styled-list features-list">
-                        <li><strong>Text & Placeholder:</strong> Name input with required attribute.</li>
-                        <li><strong>HTML5 Email & Tel:</strong> Input validation with regex patterns.</li>
-                        <li><strong>Date & Time Pickers:</strong> Native selection for DOB and Preferred Time.</li>
-                        <li><strong>Numeric Constraints:</strong> Age input restricted between min=18 and max=100.</li>
-                        <li><strong>Editable Feedback:</strong> Contenteditable section with spellcheck="true".</li>
-                        <li><strong>Form Controls:</strong> Submit, Reset, and Cancel action buttons.</li>
+                        <li class="list-item-animated">
+                            <strong>Sub-millisecond Document Sync:</strong> Collab with your team using robust OT conflict resolution protocols.
+                        </li>
+                        <li class="list-item-animated">
+                            <strong>Live Collaboration Analytics:</strong> Visualize cursor velocities, typing distribution, and session activity.
+                        </li>
+                        <li class="list-item-animated">
+                            <strong>Context-Aware AI Assistant:</strong> Inline recommendations, PR summarization, and query optimization.
+                        </li>
+                        <li class="list-item-animated">
+                            <strong>Unified Dashboard Widgets:</strong> Live tracking of active integrations, workspace metrics, and feedback.
+                        </li>
                     </ul>
                 </div>
 
-                <div class="content-card info-card">
-                    <h3>Assignment 4 Highlights</h3>
-                    <p class="section-intro">Drag & Drop API and Web Storage Features:</p>
+                <!-- Services Card -->
+                <div id="services" class="content-card info-card">
+                    <h3>Offered Cloud Services</h3>
+                    <p class="section-intro">Tailor the workspace platform to your organization using enterprise integration services:</p>
                     <ol class="styled-list services-list">
-                        <li><strong>Draggable Cards:</strong> Source boxes with <code>draggable="true"</code>.</li>
-                        <li><strong>Drop Targets:</strong> Dynamic target areas handling dragover and drop.</li>
-                        <li><strong>Local Storage API:</strong> Save permanent user preferences to <code>localStorage</code>.</li>
-                        <li><strong>Session Storage API:</strong> Manage temporary session keys in <code>sessionStorage</code>.</li>
-                        <li><strong>Data Retrieval & Clear:</strong> Interactive buttons to display or wipe stored data.</li>
+                        <li class="list-item-animated">
+                            <strong>AI Copilot Integration:</strong> Establish proprietary vector index connections to retrieve contextual workspace intelligence.
+                        </li>
+                        <li class="list-item-animated">
+                            <strong>Real-time Streaming Analytics Pipeline:</strong> Expose team contribution metrics and file operations.
+                        </li>
+                        <li class="list-item-animated">
+                            <strong>Single-Sign-On (SSO) & Compliance:</strong> Deploy enterprise-grade active directory configurations and SAML.
+                        </li>
+                        <li class="list-item-animated">
+                            <strong>Dedicated Workspace Hosting:</strong> Deploy dedicated workspace instances inside secure Kubernetes private clouds.
+                        </li>
                     </ol>
                 </div>
             </section>
 
-            <!-- ==========================================
-                 5. REGISTRATION FORM (Requirements 5 to 17)
-                 ========================================== -->
+            <!-- 12. ADVANCED REGISTRATION FORM & 13. FORM VALIDATION -->
             <section id="registration" class="content-card form-section animate-slide-up">
                 <div class="section-title-wrapper">
-                    <span class="section-badge">Assignment 1 Requirement</span>
-                    <h2>Professional User Registration Form</h2>
+                    <span class="section-badge">Advanced HTML5 Form</span>
+                    <h2>Register Your Team Workspace</h2>
                 </div>
-                <p class="section-intro">Complete the form below using HTML5 form controls with native validation checks:</p>
+                <p class="section-intro">Onboard your team to get custom API keys, dedicated hosting URLs, and live analytics streams:</p>
                 
                 <form action="#" method="POST" id="user-registration-form" class="styled-form" novalidate>
                     <div class="form-grid">
                         
-                        <!-- 6. Name Field -->
+                        <!-- Name Field -->
                         <div class="form-group">
                             <label for="reg-name">Full Name <span class="req-star">*</span></label>
-                            <input type="text" id="reg-name" name="name" placeholder="Bhuvanesh S" required aria-required="true">
+                            <input type="text" id="reg-name" name="name" placeholder="Bhuvanesh S" required>
                         </div>
 
-                        <!-- 7. Email Field -->
+                        <!-- Email Field -->
                         <div class="form-group">
-                            <label for="reg-email">Work Email Address <span class="req-star">*</span></label>
-                            <input type="email" id="reg-email" name="email" placeholder="bhuvanesh@fullstacklab.edu" required aria-required="true">
+                            <label for="reg-email">Work Email <span class="req-star">*</span></label>
+                            <input type="email" id="reg-email" name="email" placeholder="bhuvanesh@fullstacklab.edu" required>
                         </div>
 
-                        <!-- 8. Phone Number Field -->
+                        <!-- Phone Number -->
                         <div class="form-group">
                             <label for="reg-phone">Phone Number <span class="req-star">*</span></label>
-                            <input type="tel" id="reg-phone" name="phone" pattern="[\+]?[0-9\s\-]{10,15}" placeholder="+91 98765 43210" required aria-required="true">
-                            <small class="field-hint">Format: 10-15 digits (e.g. +91 9876543210)</small>
+                            <input type="tel" id="reg-phone" name="phone" pattern="[\+]?[0-9\s\-]{10,15}" placeholder="+91 98765 43210" required>
+                            <small class="field-hint">Format: 10-15 digits</small>
                         </div>
 
-                        <!-- 9. Date of Birth Field -->
+                        <!-- Date of Birth -->
                         <div class="form-group">
                             <label for="reg-dob">Date of Birth <span class="req-star">*</span></label>
-                            <input type="date" id="reg-dob" name="dob" required aria-required="true">
+                            <input type="date" id="reg-dob" name="dob" required>
                         </div>
 
-                        <!-- 10. Preferred Time Field -->
+                        <!-- Preferred Appointment Time -->
                         <div class="form-group">
                             <label for="reg-time">Preferred Appointment Time <span class="req-star">*</span></label>
-                            <input type="time" id="reg-time" name="preferred_time" required aria-required="true">
-                            <small class="field-hint">Select your preferred consultation window</small>
+                            <input type="time" id="reg-time" name="preferred_time" required>
                         </div>
 
-                        <!-- 11. Age Field -->
+                        <!-- Age Field -->
                         <div class="form-group">
                             <label for="reg-age">Age (Years) <span class="req-star">*</span></label>
-                            <input type="number" id="reg-age" name="age" min="18" max="100" placeholder="21" required aria-required="true">
-                            <small class="field-hint">Allowed age range: 18 to 100 years</small>
+                            <input type="number" id="reg-age" name="age" min="18" max="100" placeholder="21" required>
+                            <small class="field-hint">Range: 18 to 100 years</small>
                         </div>
 
-                        <!-- 15. Gender Field (Radio Buttons) -->
+                        <!-- Gender Radio Selection -->
                         <div class="form-group full-width-sm">
                             <label>Gender <span class="req-star">*</span></label>
-                            <div class="gender-radio-group">
-                                <label class="radio-label">
-                                    <input type="radio" name="gender" value="Male" checked>
-                                    <span>Male</span>
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="gender" value="Female">
-                                    <span>Female</span>
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="gender" value="Other">
-                                    <span>Other</span>
-                                </label>
+                            <div class="gender-radio-group" style="display:flex; gap:1.25rem; margin-top:0.35rem;">
+                                <label><input type="radio" name="gender" value="Male" checked> Male</label>
+                                <label><input type="radio" name="gender" value="Female"> Female</label>
+                                <label><input type="radio" name="gender" value="Other"> Other</label>
                             </div>
                         </div>
 
-                        <!-- 16. Skills/Interests Field (Checkboxes) -->
+                        <!-- Skills Checkboxes Grid -->
                         <div class="form-group full-width">
-                            <label>Technical Skills & Interests (Select all that apply):</label>
-                            <div class="skills-checkbox-grid">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="skills" value="HTML5 Semantic Layouts" checked>
-                                    <span>HTML5 Semantics</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="skills" value="Advanced Form Controls" checked>
-                                    <span>Advanced Form Controls</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="skills" value="HTML5 Drag & Drop API">
-                                    <span>Drag & Drop API</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="skills" value="Web Storage API (Local & Session)">
-                                    <span>Web Storage API</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="skills" value="Responsive UI/UX Design">
-                                    <span>Responsive UI/UX Design</span>
-                                </label>
+                            <label>Technical Skills & Interests:</label>
+                            <div class="skills-checkbox-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:0.75rem; background:var(--bg-base); padding:1rem; border-radius:10px; border:1px solid var(--border-color); margin-top:0.35rem;">
+                                <label><input type="checkbox" name="skills" value="HTML5 Semantics" checked> HTML5 Semantics</label>
+                                <label><input type="checkbox" name="skills" value="Advanced Form Controls" checked> Advanced Form Controls</label>
+                                <label><input type="checkbox" name="skills" value="HTML5 Drag & Drop API"> Drag & Drop API</label>
+                                <label><input type="checkbox" name="skills" value="Web Storage API (Local & Session)"> Web Storage API</label>
                             </div>
                         </div>
 
-                        <!-- 14. Address Field (Textarea) -->
+                        <!-- Address Textarea -->
                         <div class="form-group full-width">
-                            <label for="reg-address">Full Permanent Address <span class="req-star">*</span></label>
-                            <textarea id="reg-address" name="address" rows="3" placeholder="Department of Information Technology, FullStackLab Campus, Tech City - 600001" required aria-required="true"></textarea>
+                            <label for="reg-address">Company Headquarters Address <span class="req-star">*</span></label>
+                            <textarea id="reg-address" name="address" rows="3" placeholder="Suite 400, 123 Tech Blvd, Silicon Valley, CA" required></textarea>
                         </div>
 
-                        <!-- 12 & 13. Editable Area with Spell Check -->
+                        <!-- Contenteditable Area with Spellcheck -->
                         <div class="form-group full-width">
-                            <label for="reg-editable-notes">Additional Comments & Notes (HTML5 Editable Area with Spellcheck)</label>
-                            <div id="reg-editable-notes" class="editable-content-box" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true">
-                                Type your special requests or notes here... HTML5 spellcheck is enabled on this editable section!
+                            <label for="reg-editable-notes">Additional Workspace Notes (Contenteditable & Spellcheck)</label>
+                            <div id="reg-editable-notes" class="editable-content-box" contenteditable="true" spellcheck="true" style="min-height:80px; padding:0.85rem; background:var(--bg-base); border:1.5px dashed var(--border-color); border-radius:10px; outline:none;">
+                                Type special requests or notes here... HTML5 spellcheck is enabled!
                             </div>
-                            <small class="field-hint">Attributes applied: <code>contenteditable="true"</code> and <code>spellcheck="true"</code></small>
                         </div>
                     </div>
 
-                    <!-- 17. Form Controls (Submit, Reset, Cancel) -->
-                    <div class="form-buttons">
-                        <button type="submit" class="btn btn-primary" id="btn-submit-form">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                            <span>Submit Registration</span>
-                        </button>
-                        <button type="reset" class="btn btn-secondary" id="btn-reset-form">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-                            <span>Reset Fields</span>
-                        </button>
-                        <button type="button" class="btn btn-danger" id="btn-cancel-form">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-                            <span>Cancel Operation</span>
-                        </button>
+                    <!-- Form Action Buttons -->
+                    <div class="form-buttons" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                        <button type="submit" class="btn btn-primary" id="btn-submit-form" data-tooltip="Submit Team Registration">Onboard Team</button>
+                        <button type="reset" class="btn btn-secondary" id="btn-reset-form" data-tooltip="Reset All Fields">Reset Fields</button>
+                        <button type="button" class="btn btn-danger" id="btn-cancel-form" data-tooltip="Cancel Registration" style="background:var(--danger); color:white;">Cancel Operation</button>
                     </div>
                 </form>
             </section>
 
-            <!-- ==========================================
-                 6. DRAG AND DROP SECTION (Assignment 4 Requirements 5, 6, 7)
-                 ========================================== -->
+            <!-- HTML5 DRAG AND DROP API SECTION -->
             <section id="drag-drop" class="content-card dragdrop-section animate-slide-up">
                 <div class="section-title-wrapper">
-                    <span class="section-badge">Assignment 4 Requirement</span>
-                    <h2>HTML5 Drag and Drop Workspace API</h2>
+                    <span class="section-badge">HTML5 Drag & Drop API</span>
+                    <h2>Interactive Workspace Module Sandbox</h2>
                 </div>
-                <p class="section-intro">Drag module cards from the <strong>Available Modules Palette</strong> and drop them into the <strong>Active Workspace Dropzone</strong> or <strong>Staging Archive Zone</strong>:</p>
+                <p class="section-intro">Drag module cards from the <strong>Source Palette</strong> and drop them into <strong>Active Workspace</strong> or <strong>Staging Archive</strong>:</p>
 
-                <!-- Drag & Drop Status Message Banner -->
-                <div class="dnd-status-banner" id="dnd-status-banner">
-                    <span class="dnd-status-icon">💡</span>
-                    <span id="dnd-status-text">Status: Ready! Click and drag any module box below.</span>
+                <div class="dnd-status-banner" id="dnd-status-banner" style="background:var(--primary-glow); border:1px solid var(--primary); border-radius:10px; padding:0.75rem 1.25rem; font-size:0.88rem; margin-bottom:1.5rem;">
+                    💡 <span id="dnd-status-text">Status: Ready! Drag any module box below.</span>
                 </div>
 
-                <div class="drag-drop-grid">
+                <div class="drag-drop-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.25rem;">
                     
-                    <!-- 5. Drag Source Palette -->
-                    <div class="dnd-column">
-                        <div class="dnd-column-header">
-                            <h3>Drag Source Palette</h3>
-                            <span class="item-count" id="count-source">4 Modules</span>
+                    <!-- Source Palette -->
+                    <div class="dnd-column" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:12px; padding:1rem;">
+                        <div class="dnd-column-header" style="display:flex; justify-content:space-between; margin-bottom:0.85rem;">
+                            <h3>Source Palette</h3>
+                            <span class="item-count" id="count-source" style="font-size:0.75rem; background:var(--border-color); padding:0.2rem 0.5rem; border-radius:10px;">4 Modules</span>
                         </div>
-                        <div class="drop-target-area source-palette" id="drop-target-source" data-zone="Source Palette">
+                        <div class="drop-target-area source-palette" id="drop-target-source" data-zone="Source Palette" style="min-height:260px; border:2px dashed var(--border-color); border-radius:10px; padding:0.75rem; display:flex; flex-direction:column; gap:0.75rem;">
                             
-                            <!-- Draggable Item 1 -->
-                            <div class="draggable-card card-purple" draggable="true" id="drag-item-1" data-title="HTML5 Forms Engine" data-code="MOD-01">
-                                <div class="card-drag-handle">⋮⋮</div>
-                                <div class="card-body">
-                                    <h4>HTML5 Forms Engine</h4>
-                                    <p>Advanced controls, validation patterns & time pickers.</p>
-                                    <span class="card-tag">Form Module</span>
-                                </div>
+                            <div class="draggable-card card-purple" draggable="true" id="drag-item-1" data-title="AI Analytics Core" style="background:var(--bg-surface); border:1px solid var(--border-color); padding:0.85rem; border-radius:8px; cursor:grab;">
+                                <h4>AI Analytics Core</h4>
+                                <p style="font-size:0.78rem; color:var(--text-secondary);">Real-time telemetry algorithms.</p>
                             </div>
 
-                            <!-- Draggable Item 2 -->
-                            <div class="draggable-card card-blue" draggable="true" id="drag-item-2" data-title="Web Storage Manager" data-code="MOD-02">
-                                <div class="card-drag-handle">⋮⋮</div>
-                                <div class="card-body">
-                                    <h4>Web Storage Manager</h4>
-                                    <p>Local & Session client storage synchronization.</p>
-                                    <span class="card-tag">Storage Module</span>
-                                </div>
+                            <div class="draggable-card card-blue" draggable="true" id="drag-item-2" data-title="Web Storage Manager" style="background:var(--bg-surface); border:1px solid var(--border-color); padding:0.85rem; border-radius:8px; cursor:grab;">
+                                <h4>Web Storage Manager</h4>
+                                <p style="font-size:0.78rem; color:var(--text-secondary);">Local & Session storage sync.</p>
                             </div>
 
-                            <!-- Draggable Item 3 -->
-                            <div class="draggable-card card-green" draggable="true" id="drag-item-3" data-title="Drag & Drop API" data-code="MOD-03">
-                                <div class="card-drag-handle">⋮⋮</div>
-                                <div class="card-body">
-                                    <h4>Drag & Drop API</h4>
-                                    <p>Native browser event handlers for touch/mouse dragging.</p>
-                                    <span class="card-tag">Event Module</span>
-                                </div>
+                            <div class="draggable-card card-green" draggable="true" id="drag-item-3" data-title="WebSockets Gateway" style="background:var(--bg-surface); border:1px solid var(--border-color); padding:0.85rem; border-radius:8px; cursor:grab;">
+                                <h4>WebSockets Gateway</h4>
+                                <p style="font-size:0.78rem; color:var(--text-secondary);">Low latency socket channels.</p>
                             </div>
 
-                            <!-- Draggable Item 4 -->
-                            <div class="draggable-card card-orange" draggable="true" id="drag-item-4" data-title="Semantic Layout Grid" data-code="MOD-04">
-                                <div class="card-drag-handle">⋮⋮</div>
-                                <div class="card-body">
-                                    <h4>Semantic Layout Grid</h4>
-                                    <p>Header, Nav, Section, Article, Aside & Footer tags.</p>
-                                    <span class="card-tag">Semantic Module</span>
-                                </div>
+                            <div class="draggable-card card-orange" draggable="true" id="drag-item-4" data-title="Semantic Grid Layout" style="background:var(--bg-surface); border:1px solid var(--border-color); padding:0.85rem; border-radius:8px; cursor:grab;">
+                                <h4>Semantic Grid Layout</h4>
+                                <p style="font-size:0.78rem; color:var(--text-secondary);">Header, Nav, Aside, Footer tags.</p>
                             </div>
 
                         </div>
                     </div>
 
-                    <!-- 6. Drop Target 1: Active Workspace -->
-                    <div class="dnd-column">
-                        <div class="dnd-column-header">
-                            <h3>Active Workspace Dropzone</h3>
-                            <span class="item-count" id="count-target1">0 Modules</span>
+                    <!-- Active Workspace Dropzone -->
+                    <div class="dnd-column" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:12px; padding:1rem;">
+                        <div class="dnd-column-header" style="display:flex; justify-content:space-between; margin-bottom:0.85rem;">
+                            <h3>Active Workspace</h3>
+                            <span class="item-count" id="count-target1" style="font-size:0.75rem; background:var(--border-color); padding:0.2rem 0.5rem; border-radius:10px;">0 Modules</span>
                         </div>
-                        <div class="drop-target-area active-dropzone" id="drop-target-active" data-zone="Active Workspace">
-                            <div class="drop-placeholder" id="placeholder-active">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
-                                <p>Drop Draggable Modules Here to Activate</p>
+                        <div class="drop-target-area active-dropzone" id="drop-target-active" data-zone="Active Workspace" style="min-height:260px; border:2px dashed var(--border-color); border-radius:10px; padding:0.75rem; display:flex; flex-direction:column; gap:0.75rem;">
+                            <div class="drop-placeholder" id="placeholder-active" style="margin:auto; text-align:center; color:var(--text-muted); font-size:0.83rem;">
+                                Drop Draggable Modules Here to Activate
                             </div>
                         </div>
                     </div>
 
-                    <!-- 6. Drop Target 2: Staging Archive -->
-                    <div class="dnd-column">
-                        <div class="dnd-column-header">
-                            <h3>Staging Archive Dropzone</h3>
-                            <span class="item-count" id="count-target2">0 Modules</span>
+                    <!-- Staging Archive Dropzone -->
+                    <div class="dnd-column" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:12px; padding:1rem;">
+                        <div class="dnd-column-header" style="display:flex; justify-content:space-between; margin-bottom:0.85rem;">
+                            <h3>Staging Archive</h3>
+                            <span class="item-count" id="count-target2" style="font-size:0.75rem; background:var(--border-color); padding:0.2rem 0.5rem; border-radius:10px;">0 Modules</span>
                         </div>
-                        <div class="drop-target-area archive-dropzone" id="drop-target-archive" data-zone="Staging Archive">
-                            <div class="drop-placeholder" id="placeholder-archive">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
-                                <p>Drop Modules Here to Archive</p>
+                        <div class="drop-target-area archive-dropzone" id="drop-target-archive" data-zone="Staging Archive" style="min-height:260px; border:2px dashed var(--border-color); border-radius:10px; padding:0.75rem; display:flex; flex-direction:column; gap:0.75rem;">
+                            <div class="drop-placeholder" id="placeholder-archive" style="margin:auto; text-align:center; color:var(--text-muted); font-size:0.83rem;">
+                                Drop Modules Here to Archive
                             </div>
                         </div>
                     </div>
@@ -582,156 +732,134 @@
                 </div>
             </section>
 
-            <!-- ==========================================
-                 7. WEB STORAGE SECTION (Assignment 4 Requirements 8 to 11)
-                 ========================================== -->
+            <!-- HTML5 WEB STORAGE API SECTION -->
             <section id="storage" class="content-card storage-section animate-slide-up">
                 <div class="section-title-wrapper">
-                    <span class="section-badge">Assignment 4 Requirement</span>
-                    <h2>HTML5 Web Storage API (Local Storage & Session Storage)</h2>
+                    <span class="section-badge">Web Storage API</span>
+                    <h2>Local Storage & Session Storage Controls</h2>
                 </div>
-                <p class="section-intro">Save, retrieve, and wipe persistent data in <code>localStorage</code> or temporary data in <code>sessionStorage</code>:</p>
+                <p class="section-intro">Save, retrieve, and clear data in <code>localStorage</code> (permanent) or <code>sessionStorage</code> (temporary):</p>
 
-                <div class="storage-grid">
+                <div class="storage-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1.25rem; margin-bottom:1.5rem;">
                     
-                    <!-- 8. Local Storage Control Card -->
-                    <div class="storage-card local-storage-card">
+                    <!-- Local Storage Card -->
+                    <div class="storage-card" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:12px; padding:1.25rem; display:flex; flex-direction:column; gap:1rem;">
                         <div class="storage-card-header">
-                            <div class="storage-icon">💾</div>
-                            <div>
-                                <h3>Local Storage (Permanent)</h3>
-                                <p>Persists across browser restarts and tab refreshes.</p>
-                            </div>
+                            <h3>💾 Local Storage (Permanent)</h3>
+                            <p style="font-size:0.78rem; color:var(--text-muted);">Persists across browser restarts.</p>
                         </div>
-                        
-                        <div class="storage-inputs">
-                            <div class="form-group">
-                                <label for="local-user-name">User Full Name:</label>
-                                <input type="text" id="local-user-name" placeholder="Bhuvanesh S">
-                            </div>
-                            <div class="form-group">
-                                <label for="local-user-role">Preferred Role:</label>
-                                <select id="local-user-role">
-                                    <option value="Full Stack Developer">Full Stack Developer</option>
-                                    <option value="UI/UX Engineer">UI/UX Engineer</option>
-                                    <option value="System Architect">System Architect</option>
-                                    <option value="Student Researcher">Student Researcher</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="local-theme-pref">Default Theme Preference:</label>
-                                <select id="local-theme-pref">
-                                    <option value="Sleek Light">Sleek Light</option>
-                                    <option value="Cyber Dark">Cyber Dark</option>
-                                    <option value="Deep Space">Deep Space</option>
-                                </select>
-                            </div>
+                        <div class="form-group">
+                            <label for="local-user-name">User Full Name:</label>
+                            <input type="text" id="local-user-name" placeholder="Bhuvanesh S">
                         </div>
-
-                        <div class="storage-actions">
-                            <button id="btn-save-local" class="btn btn-primary btn-sm">Save Local Data</button>
-                            <button id="btn-read-local" class="btn btn-secondary btn-sm">Retrieve Data</button>
-                            <button id="btn-clear-local" class="btn btn-danger btn-sm">Clear Data</button>
+                        <div class="form-group">
+                            <label for="local-user-role">Preferred Role:</label>
+                            <select id="local-user-role" style="padding:0.65rem; border-radius:8px; border:1px solid var(--border-color); background:var(--bg-surface); color:var(--text-primary);">
+                                <option value="Full Stack Developer">Full Stack Developer</option>
+                                <option value="UI/UX Engineer">UI/UX Engineer</option>
+                                <option value="System Architect">System Architect</option>
+                            </select>
+                        </div>
+                        <div class="storage-actions" style="display:flex; gap:0.5rem;">
+                            <button id="btn-save-local" class="btn btn-primary" style="padding:0.45rem 0.85rem; font-size:0.78rem;">Save Local Data</button>
+                            <button id="btn-read-local" class="btn btn-secondary" style="padding:0.45rem 0.85rem; font-size:0.78rem;">Retrieve Data</button>
+                            <button id="btn-clear-local" class="btn btn-secondary" style="padding:0.45rem 0.85rem; font-size:0.78rem; color:var(--danger);">Clear Data</button>
                         </div>
                     </div>
 
-                    <!-- 9. Session Storage Control Card -->
-                    <div class="storage-card session-storage-card">
+                    <!-- Session Storage Card -->
+                    <div class="storage-card" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:12px; padding:1.25rem; display:flex; flex-direction:column; gap:1rem;">
                         <div class="storage-card-header">
-                            <div class="storage-icon">⏱️</div>
-                            <div>
-                                <h3>Session Storage (Temporary)</h3>
-                                <p>Persists only for the duration of the current tab session.</p>
-                            </div>
+                            <h3>⏱️ Session Storage (Temporary)</h3>
+                            <p style="font-size:0.78rem; color:var(--text-muted);">Persists only for current tab session.</p>
                         </div>
-
-                        <div class="storage-inputs">
-                            <div class="form-group">
-                                <label for="session-token">Temporary Session Token:</label>
-                                <input type="text" id="session-token" placeholder="SF-SESS-98234-AX" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="session-workspace">Active Workspace ID:</label>
-                                <input type="text" id="session-workspace" placeholder="WS-LAB-2026-IT101">
-                            </div>
-                            <div class="form-group">
-                                <label for="session-note">Current Session Quick Note:</label>
-                                <input type="text" id="session-note" placeholder="Testing HTML5 storage APIs in lab">
-                            </div>
+                        <div class="form-group">
+                            <label for="session-token">Temporary Session Token:</label>
+                            <input type="text" id="session-token" placeholder="SF-SESS-98234-AX" readonly>
                         </div>
-
-                        <div class="storage-actions">
-                            <button id="btn-save-session" class="btn btn-primary btn-sm">Save Session Data</button>
-                            <button id="btn-read-session" class="btn btn-secondary btn-sm">Retrieve Data</button>
-                            <button id="btn-clear-session" class="btn btn-danger btn-sm">Clear Data</button>
+                        <div class="form-group">
+                            <label for="session-workspace">Active Workspace ID:</label>
+                            <input type="text" id="session-workspace" placeholder="WS-LAB-2026-IT101">
+                        </div>
+                        <div class="storage-actions" style="display:flex; gap:0.5rem;">
+                            <button id="btn-save-session" class="btn btn-primary" style="padding:0.45rem 0.85rem; font-size:0.78rem;">Save Session Data</button>
+                            <button id="btn-read-session" class="btn btn-secondary" style="padding:0.45rem 0.85rem; font-size:0.78rem;">Retrieve Data</button>
+                            <button id="btn-clear-session" class="btn btn-secondary" style="padding:0.45rem 0.85rem; font-size:0.78rem; color:var(--danger);">Clear Data</button>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- 10 & 11. Storage Data Display Output Screen -->
-                <div class="storage-output-wrapper">
-                    <div class="output-header">
-                        <h4>Web Storage Inspection Terminal</h4>
-                        <button id="btn-clear-output" class="btn-clear-screen">Clear Screen</button>
+                <!-- Storage Terminal Output Screen -->
+                <div class="storage-output-wrapper" style="background:#0f172a; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+                    <div class="output-header" style="background:#1e293b; padding:0.75rem 1.25rem; display:flex; justify-content:space-between; align-items:center;">
+                        <h4 style="color:#e2e8f0; font-size:0.88rem;">Web Storage Inspection Terminal</h4>
+                        <button id="btn-clear-output" class="btn-clear-screen" style="background:transparent; border:1px solid #475569; color:#cbd5e1; font-size:0.72rem; padding:0.25rem 0.6rem; border-radius:4px; cursor:pointer;">Clear Screen</button>
                     </div>
-                    <pre id="storage-display-output" class="storage-terminal-screen">// Click "Retrieve Data" on Local Storage or Session Storage to view contents here...</pre>
+                    <pre id="storage-display-output" class="storage-terminal-screen" style="padding:1.25rem; color:#38bdf8; font-family:'Courier New', Courier, monospace; font-size:0.85rem; margin:0; white-space:pre-wrap; word-break:break-all; min-height:90px; max-height:260px; overflow-y:auto;">
+// Click "Retrieve Data" on Local Storage or Session Storage to view contents here...
+                    </pre>
                 </div>
             </section>
 
-            <!-- CONTACT SECTION (Requirement 17) -->
+            <!-- CONTACT SECTION -->
             <section id="contact" class="content-card contact-section animate-slide-up">
-                <h3>Get in Touch & Submission Info</h3>
-                <p class="section-intro">Laboratory details and support contacts for assignment submissions:</p>
+                <div class="section-title-wrapper">
+                    <span class="section-badge">Get in Touch</span>
+                    <h2>Contact & Telemetry Support</h2>
+                </div>
+                <p class="section-intro">Reach out regarding workspace encryption, pricing models, or support:</p>
                 <div class="contact-details-grid">
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        </div>
+                        <div class="contact-icon">✉️</div>
                         <div>
-                            <h4>Student Email</h4>
-                            <p><a href="mailto:bhuvanesh@fullstacklab.edu">bhuvanesh@fullstacklab.edu</a></p>
+                            <h4>Email Us</h4>
+                            <p><a href="mailto:support@syncflow.ai">support@syncflow.ai</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        </div>
+                        <div class="contact-icon">📞</div>
                         <div>
-                            <h4>Course Code</h4>
-                            <p>23IT721 - Full Stack Development Lab</p>
+                            <h4>Support Line</h4>
+                            <p><a href="tel:+15550199">+1 (555) 019-9821</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        </div>
+                        <div class="contact-icon">📍</div>
                         <div>
-                            <h4>Institution</h4>
-                            <p>Department of Information Technology, FullStackLab</p>
+                            <h4>Headquarters</h4>
+                            <p>Tech Park Tower 5, Innovation Way, CA</p>
                         </div>
+                    </div>
+                </div>
+
+                <div class="social-links-area">
+                    <span class="social-title">Follow telemetry updates:</span>
+                    <div class="social-buttons">
+                        <a href="https://github.com/Iam-Bhuvanesh/FullStackLab" class="social-btn" target="_blank" rel="noopener noreferrer" data-tooltip="Visit GitHub Repo">GitHub</a>
+                        <a href="https://vercel.com" class="social-btn" target="_blank" rel="noopener noreferrer" data-tooltip="View Live Vercel Deployment">Vercel Deployment</a>
                     </div>
                 </div>
             </section>
 
-            <!-- HELP SECTION (Navigation Link #help) -->
+            <!-- HELP SECTION -->
             <section id="help" class="content-card help-section animate-slide-up">
                 <div class="section-title-wrapper">
-                    <span class="section-badge">Student Guide</span>
-                    <h2>Help & Documentation Manual</h2>
+                    <span class="section-badge">Documentation</span>
+                    <h2>Help & Interactive Feature Manual</h2>
                 </div>
-                <div class="help-grid">
-                    <div class="help-card">
-                        <h4>1. How to Test HTML5 Form Validation</h4>
-                        <p>Fill out the fields under <strong>Registration Form</strong>. Try leaving required fields empty or putting invalid patterns into Email/Phone/Age to test browser native validation warnings.</p>
+                <div class="help-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.25rem;">
+                    <div class="help-card" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:10px; padding:1rem;">
+                        <h4 style="color:var(--primary); font-size:0.92rem; margin-bottom:0.4rem;">1. Form Validation</h4>
+                        <p style="font-size:0.82rem; color:var(--text-secondary);">Fill out the registration fields. Try invalid email/phone/age inputs to trigger dynamic JS error warnings.</p>
                     </div>
-                    <div class="help-card">
-                        <h4>2. How to Test Drag & Drop</h4>
-                        <p>Click and hold any module card inside <strong>Drag Source Palette</strong>, move your cursor over <strong>Active Workspace Dropzone</strong> or <strong>Staging Archive</strong>, and release your mouse button.</p>
+                    <div class="help-card" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:10px; padding:1rem;">
+                        <h4 style="color:var(--primary); font-size:0.92rem; margin-bottom:0.4rem;">2. Drag and Drop</h4>
+                        <p style="font-size:0.82rem; color:var(--text-secondary);">Drag module cards from Source Palette and drop into Active Workspace or Staging Archive.</p>
                     </div>
-                    <div class="help-card">
-                        <h4>3. How to Test Web Storage</h4>
-                        <p>Enter values in <strong>Local Storage</strong> or <strong>Session Storage</strong> and click <em>Save</em>. Click <em>Retrieve Data</em> to see the stored JSON object in the inspection terminal. Refresh the browser to verify Local Storage persistence!</p>
+                    <div class="help-card" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:10px; padding:1rem;">
+                        <h4 style="color:var(--primary); font-size:0.92rem; margin-bottom:0.4rem;">3. Web Storage</h4>
+                        <p style="font-size:0.82rem; color:var(--text-secondary);">Save data to localStorage or sessionStorage. Click Retrieve Data to view output in the inspection terminal.</p>
                     </div>
                 </div>
             </section>
@@ -739,72 +867,63 @@
         </main>
 
         <!-- ==========================================
-             4. SEMANTIC SIDEBAR (<aside>)
+             SEMANTIC SIDEBAR (<aside>)
              ========================================== -->
         <aside class="sidebar-aside" aria-label="Sidebar Widgets">
-            
-            <!-- Widget 1: Developer Quick Profile -->
             <div class="aside-widget profile-widget">
-                <h4 class="widget-title">Developer Info</h4>
+                <h4 class="widget-title">Developer Profile</h4>
                 <div class="profile-card">
                     <div class="profile-avatar">BS</div>
                     <div class="profile-details">
                         <h5>Bhuvanesh S</h5>
                         <p>Register No: <strong>23IT101</strong></p>
-                        <span class="status-pill online">Lab Student</span>
+                        <span class="status-pill online">Full Stack Student</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Widget 2: HTML5 Feature Telemetry -->
             <div class="aside-widget telemetry-widget">
-                <h4 class="widget-title">HTML5 Specs Audit</h4>
+                <h4 class="widget-title">HTML5 & CSS Specs Audit</h4>
                 <ul class="aside-feature-list">
-                    <li><span class="check-icon">✓</span> Semantic Elements</li>
-                    <li><span class="check-icon">✓</span> Advanced Input Types</li>
-                    <li><span class="check-icon">✓</span> Form Validation API</li>
-                    <li><span class="check-icon">✓</span> Contenteditable & Spellcheck</li>
-                    <li><span class="check-icon">✓</span> Drag and Drop API</li>
+                    <li><span class="check-icon">✓</span> Multi-CSS (Inline, Internal, External)</li>
+                    <li><span class="check-icon">✓</span> CSS Grid & Flexbox</li>
+                    <li><span class="check-icon">✓</span> CSS Variables (:root)</li>
+                    <li><span class="check-icon">✓</span> Pseudo-elements & Tooltips</li>
+                    <li><span class="check-icon">✓</span> Drag & Drop API</li>
                     <li><span class="check-icon">✓</span> Local & Session Storage</li>
                 </ul>
             </div>
 
-            <!-- Widget 3: Quick Tip Card -->
             <div class="aside-widget tip-widget">
-                <h4 class="widget-title">💡 Lab Tip</h4>
+                <h4 class="widget-title">💡 Workspace Tip</h4>
                 <p>
-                    Local Storage keeps data saved permanently even when you close the browser window, while Session Storage clears as soon as the tab is closed!
+                    Use the Dark Console toggle in the navigation bar to switch between Sleek Slate (Light Mode) and Cyber Slate (Dark Mode)!
                 </p>
             </div>
-
         </aside>
     </div>
 
-    <!-- Floating Back to Top Button -->
-    <button id="back-to-top" class="back-to-top" title="Go to top" aria-label="Back to Top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="12" y1="19" x2="12" y2="5"></line>
-            <polyline points="5 12 12 5 19 12"></polyline>
-        </svg>
+    <!-- 16. Floating Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" title="Go to top" aria-label="Back to Top" data-tooltip="Scroll back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
     </button>
 
-    <!-- ==========================================
-         18. HTML5 FOOTER SECTION
-         ========================================== -->
+    <!-- 18. FOOTER SECTION -->
     <footer class="app-footer">
         <div class="footer-container">
             <div class="footer-info">
                 <p>&copy; 2026 SyncFlow AI Web Suite. All Rights Reserved.</p>
-                <p>Designed & Developed by <strong>Bhuvanesh S</strong> (Register No: <strong>23IT101</strong>)</p>
+                <p>Designed & Developed by <strong class="footer-designer">Bhuvanesh S</strong> (Register No: <strong>23IT101</strong>)</p>
                 <p>Department of Information Technology, FullStackLab | Course Code: 23IT721</p>
             </div>
             <div class="footer-icons">
-                <a href="mailto:bhuvanesh@fullstacklab.edu" title="Email Student">Email</a>
-                <a href="#help" title="Read Help Docs">Help Guide</a>
-                <a href="#registration" title="Jump to Form">Registration Form</a>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#registration">Registration</a>
+                <a href="#drag-drop">Drag & Drop</a>
+                <a href="#storage">Storage</a>
             </div>
         </div>
-    </div>
     </footer>
 
     <!-- Main JavaScript Engine -->
