@@ -1,4 +1,4 @@
-/* SyncFlow AI Web Application Engine - Advanced Forms, Drag & Drop, and Web Storage */
+/* Gourmet Delight Restaurant Application Engine - Advanced Forms, Drag & Drop, and Web Storage */
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Core Visual & Theme Engines
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSlider();
     initNotifications();
 
-    // 2. Advanced HTML5 Form Validation
+    // 2. Advanced HTML5 Reservation Form Validation
     initFormValidation();
 
     // 3. HTML5 Drag and Drop API
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   1. Theme Switcher Engine (Light/Dark Console)
+   1. Theme Switcher Engine (Light/Dark Mode)
    ========================================================================== */
 function initTheme() {
     const themeToggleBtn = document.getElementById('theme-toggle');
@@ -50,10 +50,10 @@ function updateThemeIcon(theme) {
     
     if (theme === 'dark' || theme === 'amoled') {
         if (icon) icon.innerHTML = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
-        if (text) text.textContent = 'Light Console';
+        if (text) text.textContent = 'Light Theme';
     } else {
         if (icon) icon.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
-        if (text) text.textContent = 'Dark Console';
+        if (text) text.textContent = 'Dark Theme';
     }
 }
 
@@ -146,10 +146,10 @@ function initClock() {
    ========================================================================== */
 function initStatsCounter() {
     const counters = [
-        { id: 'stat-total-users', target: 12450, prefix: '', suffix: '' },
-        { id: 'stat-active-users', target: 3842, prefix: '', suffix: '' },
-        { id: 'stat-revenue', target: 48250, prefix: '$', suffix: '' },
-        { id: 'stat-tasks', target: 8, prefix: '', suffix: '' }
+        { id: 'stat-tables', target: 15, prefix: '', suffix: ' Open' },
+        { id: 'stat-orders', target: 182, prefix: '', suffix: '' },
+        { id: 'stat-revenue', target: 12450, prefix: '$', suffix: '' },
+        { id: 'stat-ratings', target: 4.9, prefix: '', suffix: ' ★', isDecimal: true }
     ];
     
     const duration = 1600; // ms
@@ -164,9 +164,14 @@ function initStatsCounter() {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const ease = progress * (2 - progress);
-            const currentVal = Math.floor(ease * counter.target);
             
-            el.textContent = counter.prefix + currentVal.toLocaleString() + counter.suffix;
+            if (counter.isDecimal) {
+                const currentVal = (ease * counter.target).toFixed(1);
+                el.textContent = counter.prefix + currentVal + counter.suffix;
+            } else {
+                const currentVal = Math.floor(ease * counter.target);
+                el.textContent = counter.prefix + currentVal.toLocaleString() + counter.suffix;
+            }
             
             if (progress < 1) {
                 requestAnimationFrame(update);
@@ -283,7 +288,7 @@ function initNotifications() {
     if (notifyClear) {
         notifyClear.addEventListener('click', () => {
             if (notifyList) {
-                notifyList.innerHTML = `<li class="empty-notify" style="padding:1.5rem; text-align:center; color:var(--text-muted); font-size:0.85rem;">No new notifications. Telemetry feeds are caught up!</li>`;
+                notifyList.innerHTML = `<li class="empty-notify" style="padding:1.5rem; text-align:center; color:var(--text-muted); font-size:0.85rem;">No new notifications. All culinary alerts cleared!</li>`;
             }
             if (notifyBadge) notifyBadge.style.display = 'none';
         });
@@ -312,21 +317,21 @@ function initNotifications() {
    6. Advanced Form Elements & Client Validation
    ========================================================================== */
 function initFormValidation() {
-    const form = document.getElementById('user-registration-form');
+    const form = document.getElementById('restaurant-reservation-form');
     if (!form) return;
     
     const inputs = {
-        name: document.getElementById('reg-name'),
-        email: document.getElementById('reg-email'),
-        phone: document.getElementById('reg-phone'),
-        dob: document.getElementById('reg-dob'),
-        time: document.getElementById('reg-time'),
-        age: document.getElementById('reg-age'),
-        address: document.getElementById('reg-address'),
-        editableNotes: document.getElementById('reg-editable-notes')
+        name: document.getElementById('res-name'),
+        email: document.getElementById('res-email'),
+        phone: document.getElementById('res-phone'),
+        date: document.getElementById('res-date'),
+        time: document.getElementById('res-time'),
+        guests: document.getElementById('res-guests'),
+        address: document.getElementById('res-address'),
+        editableNotes: document.getElementById('res-editable-notes')
     };
 
-    const btnCancel = document.getElementById('btn-cancel-form');
+    const btnCancel = document.getElementById('btn-cancel-res');
     
     Object.keys(inputs).forEach(key => {
         const field = inputs[key];
@@ -343,14 +348,14 @@ function initFormValidation() {
         
         // 1. Name
         if (!inputs.name.value || inputs.name.value.trim().length < 3) {
-            showFieldError(inputs.name, 'Full Name is required (minimum 3 characters).');
+            showFieldError(inputs.name, 'Customer Name is required (minimum 3 characters).');
             isValid = false;
         } else clearFieldError(inputs.name);
         
         // 2. Email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!inputs.email.value || !emailRegex.test(inputs.email.value.trim())) {
-            showFieldError(inputs.email, 'Enter a valid work email address.');
+            showFieldError(inputs.email, 'Enter a valid email address.');
             isValid = false;
         } else clearFieldError(inputs.email);
         
@@ -361,28 +366,28 @@ function initFormValidation() {
             isValid = false;
         } else clearFieldError(inputs.phone);
         
-        // 4. DOB
-        if (!inputs.dob.value) {
-            showFieldError(inputs.dob, 'Please select your Date of Birth.');
+        // 4. Date
+        if (!inputs.date.value) {
+            showFieldError(inputs.date, 'Please select your Reservation Date.');
             isValid = false;
-        } else clearFieldError(inputs.dob);
+        } else clearFieldError(inputs.date);
 
         // 5. Time
         if (!inputs.time.value) {
-            showFieldError(inputs.time, 'Please select your Preferred Appointment Time.');
+            showFieldError(inputs.time, 'Please select your Preferred Dining Time.');
             isValid = false;
         } else clearFieldError(inputs.time);
         
-        // 6. Age (18-100)
-        const ageVal = parseInt(inputs.age.value, 10);
-        if (isNaN(ageVal) || ageVal < 18 || ageVal > 100) {
-            showFieldError(inputs.age, 'Age must be between 18 and 100 years.');
+        // 6. Guests / Age (1-100)
+        const guestVal = parseInt(inputs.guests.value, 10);
+        if (isNaN(guestVal) || guestVal < 1 || guestVal > 100) {
+            showFieldError(inputs.guests, 'Age / Guest count must be between 1 and 100.');
             isValid = false;
-        } else clearFieldError(inputs.age);
+        } else clearFieldError(inputs.guests);
 
         // 7. Address
         if (!inputs.address.value || inputs.address.value.trim().length < 8) {
-            showFieldError(inputs.address, 'Please enter company address details.');
+            showFieldError(inputs.address, 'Please enter location / address details.');
             isValid = false;
         } else clearFieldError(inputs.address);
         
@@ -395,9 +400,9 @@ function initFormValidation() {
                 name: inputs.name.value.trim(),
                 email: inputs.email.value.trim(),
                 phone: inputs.phone.value.trim(),
-                dob: inputs.dob.value,
+                date: inputs.date.value,
                 time: inputs.time.value,
-                age: inputs.age.value,
+                guests: inputs.guests.value,
                 gender: genderVal,
                 skills: selectedSkills,
                 address: inputs.address.value.trim(),
@@ -410,7 +415,7 @@ function initFormValidation() {
 
     if (btnCancel) {
         btnCancel.addEventListener('click', () => {
-            if (confirm('Cancel registration process and reset form fields?')) {
+            if (confirm('Cancel reservation process and reset form fields?')) {
                 form.reset();
                 Object.keys(inputs).forEach(key => {
                     if (inputs[key]) clearFieldError(inputs[key]);
@@ -458,17 +463,17 @@ function showSuccessModal(data) {
     
     modal.innerHTML = `
         <div class="success-modal-card">
-            <div class="success-icon">⚡</div>
-            <h2>Workspace Registered!</h2>
-            <p>Welcome <strong>${data.name}</strong>. SyncFlow AI has verified your registration.</p>
+            <div class="success-icon">🍷</div>
+            <h2>Table Reserved Successfully!</h2>
+            <p>Thank you <strong>${data.name}</strong>. Your reservation at Gourmet Delight is confirmed.</p>
             <div style="text-align:left; background:var(--bg-base); border:1px solid var(--border-color); padding:1rem; border-radius:8px; margin-bottom:1.25rem; font-size:0.82rem; line-height:1.6;">
-                <div><strong>Work Email:</strong> ${data.email}</div>
+                <div><strong>Email:</strong> ${data.email}</div>
                 <div><strong>Phone:</strong> ${data.phone}</div>
-                <div><strong>DOB & Time:</strong> ${data.dob} at ${data.time}</div>
-                <div><strong>Age & Gender:</strong> ${data.age} yrs (${data.gender})</div>
-                <div><strong>Selected Skills:</strong> ${data.skills.join(', ')}</div>
+                <div><strong>Date & Time:</strong> ${data.date} at ${data.time}</div>
+                <div><strong>Guests & Gender:</strong> ${data.guests} Guests (${data.gender})</div>
+                <div><strong>Preferences:</strong> ${data.skills.join(', ')}</div>
             </div>
-            <button class="btn btn-primary btn-close-modal" style="width:100%;">Proceed to Console</button>
+            <button class="btn btn-primary btn-close-modal" style="width:100%;">Return to Restaurant Portal</button>
         </div>
     `;
     
@@ -496,9 +501,9 @@ function initDragAndDrop() {
         item.addEventListener('dragstart', (e) => {
             draggedItem = item;
             item.classList.add('dragging');
-            const title = item.dataset.title || 'Module';
+            const title = item.dataset.title || 'Dish';
             e.dataTransfer.setData('text/plain', item.id);
-            if (statusText) statusText.textContent = `Status: Dragging "${title}"... Drop into any workspace dropzone!`;
+            if (statusText) statusText.textContent = `Status: Dragging "${title}"... Drop into any order dropzone!`;
         });
 
         item.addEventListener('dragend', () => {
@@ -536,7 +541,7 @@ function initDragAndDrop() {
 
                 target.appendChild(draggedItem);
                 
-                const title = draggedItem.dataset.title || 'Module';
+                const title = draggedItem.dataset.title || 'Dish';
                 const targetZoneName = target.dataset.zone || 'Dropzone';
 
                 if (statusText) statusText.textContent = `Success! Dropped "${title}" into ${targetZoneName}.`;
@@ -557,15 +562,15 @@ function initDragAndDrop() {
         const phActive = document.getElementById('placeholder-active');
         const phArchive = document.getElementById('placeholder-archive');
 
-        if (sourceZone && countSource) countSource.textContent = `${sourceZone.querySelectorAll('.draggable-card').length} Modules`;
+        if (sourceZone && countSource) countSource.textContent = `${sourceZone.querySelectorAll('.draggable-card').length} Items`;
         if (activeZone && countActive) {
             const count = activeZone.querySelectorAll('.draggable-card').length;
-            countActive.textContent = `${count} Modules`;
+            countActive.textContent = `${count} Items`;
             if (phActive) phActive.style.display = count === 0 ? 'block' : 'none';
         }
         if (archiveZone && countArchive) {
             const count = archiveZone.querySelectorAll('.draggable-card').length;
-            countArchive.textContent = `${count} Modules`;
+            countArchive.textContent = `${count} Items`;
             if (phArchive) phArchive.style.display = count === 0 ? 'block' : 'none';
         }
     }
@@ -593,7 +598,7 @@ function initWebStorage() {
     const btnClearOutput = document.getElementById('btn-clear-output');
 
     if (inputSessionToken && !inputSessionToken.value) {
-        inputSessionToken.value = 'SF-SESS-' + Math.floor(10000 + Math.random() * 90000) + '-IT';
+        inputSessionToken.value = 'GD-SESS-' + Math.floor(10000 + Math.random() * 90000) + '-IT';
     }
 
     if (btnSaveLocal) {
@@ -604,27 +609,27 @@ function initWebStorage() {
                 timestamp: new Date().toLocaleString()
             };
             if (!profileData.name) return alert('Enter user name before saving to Local Storage.');
-            localStorage.setItem('userProfile', JSON.stringify(profileData));
+            localStorage.setItem('gourmetUserProfile', JSON.stringify(profileData));
             logToTerminal(`[LOCAL STORAGE SUCCESS] Data saved to localStorage:\n` + JSON.stringify(profileData, null, 2));
         });
     }
 
     if (btnReadLocal) {
         btnReadLocal.addEventListener('click', () => {
-            const rawData = localStorage.getItem('userProfile');
+            const rawData = localStorage.getItem('gourmetUserProfile');
             if (rawData) {
                 const parsed = JSON.parse(rawData);
-                logToTerminal(`[LOCAL STORAGE RETRIEVED] Key "userProfile":\n` + JSON.stringify(parsed, null, 2));
+                logToTerminal(`[LOCAL STORAGE RETRIEVED] Key "gourmetUserProfile":\n` + JSON.stringify(parsed, null, 2));
                 if (inputLocalName) inputLocalName.value = parsed.name || '';
-            } else logToTerminal(`[LOCAL STORAGE READ] No data found.`);
+            } else logToTerminal(`[LOCAL STORAGE READ] No data found in localStorage.`);
         });
     }
 
     if (btnClearLocal) {
         btnClearLocal.addEventListener('click', () => {
-            localStorage.removeItem('userProfile');
+            localStorage.removeItem('gourmetUserProfile');
             if (inputLocalName) inputLocalName.value = '';
-            logToTerminal(`[LOCAL STORAGE CLEARED] Successfully removed "userProfile".`);
+            logToTerminal(`[LOCAL STORAGE CLEARED] Successfully removed "gourmetUserProfile".`);
         });
     }
 
@@ -632,30 +637,30 @@ function initWebStorage() {
         btnSaveSession.addEventListener('click', () => {
             const sessionData = {
                 sessionToken: inputSessionToken ? inputSessionToken.value : '',
-                workspaceId: inputSessionWorkspace ? inputSessionWorkspace.value.trim() : '',
+                tableSessionId: inputSessionWorkspace ? inputSessionWorkspace.value.trim() : '',
                 created: new Date().toLocaleTimeString()
             };
-            if (!sessionData.workspaceId) return alert('Enter Workspace ID before saving.');
-            sessionStorage.setItem('activeSession', JSON.stringify(sessionData));
+            if (!sessionData.tableSessionId) return alert('Enter Table Session ID before saving.');
+            sessionStorage.setItem('activeDiningSession', JSON.stringify(sessionData));
             logToTerminal(`[SESSION STORAGE SUCCESS] Saved to sessionStorage:\n` + JSON.stringify(sessionData, null, 2));
         });
     }
 
     if (btnReadSession) {
         btnReadSession.addEventListener('click', () => {
-            const rawData = sessionStorage.getItem('activeSession');
+            const rawData = sessionStorage.getItem('activeDiningSession');
             if (rawData) {
                 const parsed = JSON.parse(rawData);
-                logToTerminal(`[SESSION STORAGE RETRIEVED] Key "activeSession":\n` + JSON.stringify(parsed, null, 2));
+                logToTerminal(`[SESSION STORAGE RETRIEVED] Key "activeDiningSession":\n` + JSON.stringify(parsed, null, 2));
             } else logToTerminal(`[SESSION STORAGE READ] No session data found.`);
         });
     }
 
     if (btnClearSession) {
         btnClearSession.addEventListener('click', () => {
-            sessionStorage.removeItem('activeSession');
+            sessionStorage.removeItem('activeDiningSession');
             if (inputSessionWorkspace) inputSessionWorkspace.value = '';
-            logToTerminal(`[SESSION STORAGE CLEARED] Successfully removed "activeSession".`);
+            logToTerminal(`[SESSION STORAGE CLEARED] Successfully removed "activeDiningSession".`);
         });
     }
 

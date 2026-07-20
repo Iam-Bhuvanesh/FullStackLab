@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SyncFlow AI - Advanced HTML5 Forms, Drag & Drop and Web Storage Studio</title>
-    <meta name="description" content="SyncFlow AI - Professional Collaborative Workspace demonstrating Advanced HTML5 Form Elements, Drag & Drop API, Web Storage, and Multi-CSS Stylesheets.">
+    <title>Gourmet Delight - Fine Dining & Culinary Experience Studio</title>
+    <meta name="description" content="Professional Gourmet Restaurant Web Application demonstrating Advanced HTML5 Form Elements, Drag & Drop API, Web Storage, Multi-CSS Stylesheets, and Dynamic Analytics.">
     <!-- Google Fonts for typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- 1. EXTERNAL STYLESHEET DEMONSTRATION (Requirement 21) -->
     <link rel="stylesheet" href="style.css">
@@ -19,24 +19,24 @@
         
         /* Requirement 25: CSS Pseudo Element ::selection */
         ::selection {
-            background: #6366f1;
+            background: #f59e0b;
             color: #ffffff;
             text-shadow: none;
         }
 
         /* Requirement 25: CSS Pseudo Elements ::first-letter & ::first-line */
-        .workspace-intro::first-letter {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
+        .culinary-article::first-letter {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
             float: left;
             line-height: 1;
-            margin-right: 0.5rem;
+            margin-right: 0.6rem;
             color: var(--primary);
             text-shadow: 0 2px 8px var(--primary-glow);
         }
 
-        .workspace-intro::first-line {
+        .culinary-article::first-line {
             font-weight: 700;
             letter-spacing: 0.5px;
             color: var(--text-primary);
@@ -128,44 +128,45 @@
             transition: width 1.5s ease-in-out;
         }
 
-        .progress-fill.fill-78 { width: 78%; animation: fill78 2s ease-out forwards; }
-        .progress-fill.fill-64 { width: 64%; animation: fill64 2s ease-out forwards; }
-        .progress-fill.fill-99 { width: 99%; animation: fill99 2s ease-out forwards; }
+        .progress-fill.fill-85 { width: 85%; animation: fill85 2s ease-out forwards; }
+        .progress-fill.fill-72 { width: 72%; animation: fill72 2s ease-out forwards; }
+        .progress-fill.fill-98 { width: 98%; animation: fill98 2s ease-out forwards; }
 
-        @keyframes fill78 { from { width: 0%; } to { width: 78%; } }
-        @keyframes fill64 { from { width: 0%; } to { width: 64%; } }
-        @keyframes fill99 { from { width: 0%; } to { width: 99%; } }
+        @keyframes fill85 { from { width: 0%; } to { width: 85%; } }
+        @keyframes fill72 { from { width: 0%; } to { width: 72%; } }
+        @keyframes fill98 { from { width: 0%; } to { width: 98%; } }
     </style>
 </head>
 <body>
 
     <!-- ==========================================
-         1. APPLICATION HEADER SECTION
+         1. RESTAURANT HEADER SECTION (Assignment 1 & 4)
          ========================================== -->
     <header class="app-header">
         <div class="header-container">
             <div class="logo-area">
-                <!-- Inline SVG Logo for High Resolution Vector Graphics -->
-                <svg class="app-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" id="app-logo-svg">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                <!-- Inline SVG Logo for Vector Resolution -->
+                <svg class="app-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="restaurant-logo">
+                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+                    <path d="M12 6v6l4 2"/>
                 </svg>
                 <div class="logo-text">
                     <!-- 3. INLINE CSS DEMONSTRATION -->
-                    <h1 class="app-name" style="font-family: 'Outfit', sans-serif; letter-spacing: 0.5px;">SyncFlow <span class="accent-text" style="color: var(--primary); font-weight: 800;">AI</span></h1>
-                    <span class="app-tagline" style="font-size: 0.8rem; opacity: 0.9;">AI-Powered Collaborative Workspace & Development Suite</span>
+                    <h1 class="app-name" style="font-family: 'Cinzel', serif; letter-spacing: 1px;">Gourmet <span class="accent-text" style="color: var(--primary); font-weight: 900;">Delight</span></h1>
+                    <span class="app-tagline" style="font-size: 0.8rem; opacity: 0.9;">Fine Dining & Culinary Experience Studio</span>
                 </div>
             </div>
             
             <div class="header-right">
-                <!-- 9. Dynamic Real-Time Date & Clock Display -->
-                <div class="clock-display" id="current-time">Loading system clock...</div>
+                <!-- 9. Dynamic Date & Time Display -->
+                <div class="clock-display" id="current-time">Loading culinary clock...</div>
                 
                 <div class="student-meta">
                     <div class="meta-badge" data-tooltip="Course: 23IT721 - Full Stack Lab">
-                        <span class="meta-label">Developer</span>
+                        <span class="meta-label">Chef Developer</span>
                         <span class="meta-value">Bhuvanesh S</span>
                     </div>
-                    <div class="meta-badge" data-tooltip="Student Register Number">
+                    <div class="meta-badge" data-tooltip="Student Registration Number">
                         <span class="meta-label">Register No.</span>
                         <span class="meta-value">23IT101</span>
                     </div>
@@ -175,43 +176,41 @@
     </header>
 
     <!-- ==========================================
-         2. NAVIGATION BAR (Requirement 2)
-         Navigation items: Home, About, Dashboard, Features, Services, Registration, Drag & Drop, Storage, Contact, Help, Logout
+         2. NAVIGATION BAR (Requirement 2 & Assignment 1)
+         Navigation links: Home, Menu, Chefs, Reservations, Gallery, Reviews, Services, Reports, About, Contact, Help, Logout
          ========================================== -->
     <nav class="navbar" aria-label="Main Navigation">
         <div class="nav-container">
             <div class="nav-links">
                 <a href="#home" class="nav-item active" id="nav-home" data-tooltip="Go to Home Banner">Home</a>
-                <a href="#about" class="nav-item" id="nav-about" data-tooltip="About Workspace Specs">About</a>
-                <a href="#dashboard" class="nav-item" id="nav-dashboard" data-tooltip="View Live Stats Dashboard">Dashboard</a>
-                <a href="#features" class="nav-item" id="nav-features" data-tooltip="Core Workspace Features">Features</a>
-                <a href="#services" class="nav-item" id="nav-services" data-tooltip="Offered Cloud Services">Services</a>
-                <a href="#registration" class="nav-item" id="nav-registration" data-tooltip="Advanced HTML5 Form">Registration</a>
-                <a href="#drag-drop" class="nav-item" id="nav-dragdrop" data-tooltip="HTML5 Drag & Drop API">Drag & Drop</a>
-                <a href="#storage" class="nav-item" id="nav-storage" data-tooltip="Local & Session Web Storage">Storage</a>
-                <a href="#contact" class="nav-item" id="nav-contact" data-tooltip="Contact & Support">Contact</a>
+                <a href="#menu" class="nav-item" id="nav-menu" data-tooltip="View Culinary Menu">Menu</a>
+                <a href="#chefs" class="nav-item" id="nav-chefs" data-tooltip="Meet Executive Chefs">Chefs</a>
+                <a href="#reservations" class="nav-item" id="nav-reservations" data-tooltip="Reserve Table Online">Reservations</a>
+                <a href="#gallery" class="nav-item" id="nav-gallery" data-tooltip="Browse Interior & Dish Gallery">Gallery</a>
+                <a href="#reviews" class="nav-item" id="nav-reviews" data-tooltip="Read Guest Testimonials">Reviews</a>
+                <a href="#services" class="nav-item" id="nav-services" data-tooltip="Culinary Services">Services</a>
+                <a href="#reports" class="nav-item" id="nav-reports" data-tooltip="Modules Table & Reports">Reports</a>
+                <a href="#about" class="nav-item" id="nav-about" data-tooltip="About Gourmet Studio">About</a>
+                <a href="#contact" class="nav-item" id="nav-contact" data-tooltip="Location & Contact Info">Contact</a>
                 <a href="#help" class="nav-item" id="nav-help" data-tooltip="User Manual & Docs">Help</a>
-                <a href="#logout" class="logout-btn nav-item" id="nav-logout" onclick="alert('SyncFlow AI Workspace Session Closed!'); return false;">Logout</a>
+                <a href="#logout" class="logout-btn nav-item" id="nav-logout" onclick="alert('Gourmet Delight Session Closed!'); return false;">Logout</a>
             </div>
             
             <div class="nav-actions">
-                <!-- 10. Theme Switcher Control (Light/Dark Console) -->
-                <button id="theme-toggle" class="nav-action-btn theme-btn" title="Toggle Light/Dark Console" data-tooltip="Switch Console Theme">
+                <!-- 10. Theme Switcher Control -->
+                <button id="theme-toggle" class="nav-action-btn theme-btn" title="Toggle Light/Dark Theme" data-tooltip="Switch Light/Dark Mode">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                    <span>Dark Console</span>
+                    <span>Dark Theme</span>
+                </button>
+
+                <!-- Color Palette Customizer Button -->
+                <button id="customizer-trigger" class="nav-action-btn customizer-btn" title="Custom Theme Colors" data-tooltip="Change Palette Accent">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a7 7 0 0 0-7 7c0 3.87 3.13 7 7 7a1 1 0 0 0 1-1V14a1 1 0 0 1 1-1h1.5a2.5 2.5 0 0 0 2.5-2.5V9a7 7 0 0 0-7-7z"></path></svg>
+                    <span>Palette</span>
                 </button>
                 
-                <!-- Theme Color Palette Customizer Button -->
-                <button id="customizer-trigger" class="nav-action-btn customizer-btn" title="Open Color Customizer" data-tooltip="Change Accent Palette">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M12 2a7 7 0 0 0-7 7c0 3.87 3.13 7 7 7a1 1 0 0 0 1-1V14a1 1 0 0 1 1-1h1.5a2.5 2.5 0 0 0 2.5-2.5V9a7 7 0 0 0-7-7z"></path>
-                    </svg>
-                    <span>Customize UI</span>
-                </button>
-                
-                <!-- 11. Telemetry Alerts Drawer Trigger -->
-                <a href="#notifications" id="notification-trigger" class="nav-action-btn notify-btn" title="Notifications drawer" data-tooltip="Live Telemetry Alerts">
+                <!-- 11. Notification Panel Drawer Trigger -->
+                <a href="#notifications" id="notification-trigger" class="nav-action-btn notify-btn" title="Notifications drawer" data-tooltip="Today's Offers & Notifications">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
                     <span id="notification-badge" class="badge">3</span>
                 </a>
@@ -222,162 +221,241 @@
     <!-- 11. Notification Drawer Slide Panel -->
     <div id="notification-panel" class="notification-panel" aria-hidden="true">
         <div class="panel-header">
-            <h3>Workspace Telemetry Alerts</h3>
-            <button id="notification-close" class="panel-close-btn" aria-label="Close Alerts">&times;</button>
+            <h3>Special Offers & Notifications</h3>
+            <button id="notification-close" class="panel-close-btn" aria-label="Close Notifications">&times;</button>
         </div>
         <ul class="notification-list">
             <li class="notification-item">
-                <span class="notify-icon purple">⚡</span>
+                <span class="notify-icon purple">🍷</span>
                 <div class="notify-info">
-                    <p>SyncFlow AI v2.4.0 Engine Active</p>
-                    <span class="notify-time">2 mins ago</span>
+                    <p>Complimentary Vintage Wine with 4-Guest Reservations!</p>
+                    <span class="notify-time">Today's Special</span>
                 </div>
-                <button class="btn-dismiss" aria-label="Dismiss Alert">&times;</button>
+                <button class="btn-dismiss" aria-label="Dismiss">&times;</button>
             </li>
             <li class="notification-item">
-                <span class="notify-icon green">💾</span>
+                <span class="notify-icon green">✨</span>
                 <div class="notify-info">
-                    <p>Web Storage API Initialized (Local & Session)</p>
-                    <span class="notify-time">15 mins ago</span>
+                    <p>Chef's Tasting Menu 20% Off for Evening Slots</p>
+                    <span class="notify-time">Promotional Offer</span>
                 </div>
-                <button class="btn-dismiss" aria-label="Dismiss Alert">&times;</button>
+                <button class="btn-dismiss" aria-label="Dismiss">&times;</button>
             </li>
             <li class="notification-item">
-                <span class="notify-icon blue">🎯</span>
+                <span class="notify-icon blue">🍽️</span>
                 <div class="notify-info">
-                    <p>HTML5 Drag & Drop Workspace Handlers Live</p>
-                    <span class="notify-time">1 hour ago</span>
+                    <p>Outdoor Garden Terrace Open for Weekend Brunch</p>
+                    <span class="notify-time">Dining Notice</span>
                 </div>
-                <button class="btn-dismiss" aria-label="Dismiss Alert">&times;</button>
+                <button class="btn-dismiss" aria-label="Dismiss">&times;</button>
             </li>
         </ul>
         <div class="panel-footer">
-            <button id="notification-clear" class="btn btn-secondary">Clear Alerts</button>
+            <button id="notification-clear" class="btn btn-secondary">Clear All Alerts</button>
         </div>
     </div>
 
-    <!-- Theme Customizer Panel -->
+    <!-- Color Palette Customizer Drawer -->
     <div id="customizer-panel" class="notification-panel" aria-hidden="true">
         <div class="panel-header">
-            <h3>UI Theme & Palette</h3>
-            <button id="customizer-close" class="panel-close-btn" aria-label="Close Customizer">&times;</button>
+            <h3>Restaurant Theme Palette</h3>
+            <button id="customizer-close" class="panel-close-btn">&times;</button>
         </div>
         <div class="customizer-content">
             <div class="customizer-section">
-                <h4>Console Base Theme</h4>
+                <h4>Base Mode</h4>
                 <div class="theme-mode-grid">
-                    <button class="theme-mode-btn" data-mode="light"><span>Sleek Slate (Light)</span></button>
-                    <button class="theme-mode-btn" data-mode="dark"><span>Cyber Slate (Dark)</span></button>
-                    <button class="theme-mode-btn" data-mode="amoled"><span>Deep Space (AMOLED)</span></button>
+                    <button class="theme-mode-btn" data-mode="light"><span>Sleek Light</span></button>
+                    <button class="theme-mode-btn" data-mode="dark"><span>Cyber Dark</span></button>
+                    <button class="theme-mode-btn" data-mode="amoled"><span>Deep Space</span></button>
                 </div>
             </div>
-            
             <div class="customizer-section">
-                <h4>Accent Color Scheme</h4>
+                <h4>Accent Theme Palette</h4>
                 <div class="accent-color-grid">
-                    <button class="accent-btn" data-accent="default" title="Indigo & Cyan"><span class="color-bubble color-default"></span><span>Indigo Accent</span></button>
-                    <button class="accent-btn" data-accent="blue" title="Electric Blue"><span class="color-bubble color-blue"></span><span>Blue</span></button>
-                    <button class="accent-btn" data-accent="green" title="Emerald Green"><span class="color-bubble color-green"></span><span>Green</span></button>
-                    <button class="accent-btn" data-accent="pink" title="Rose Pink"><span class="color-bubble color-pink"></span><span>Pink</span></button>
+                    <button class="accent-btn" data-accent="default" title="Warm Amber / Gold"><span class="color-bubble color-default"></span><span>Amber Gold</span></button>
+                    <button class="accent-btn" data-accent="red" title="Crimson Red"><span class="color-bubble color-red"></span><span>Crimson Red</span></button>
+                    <button class="accent-btn" data-accent="green" title="Emerald Green"><span class="color-bubble color-green"></span><span>Emerald</span></button>
+                    <button class="accent-btn" data-accent="pink" title="Rose Pink"><span class="color-bubble color-pink"></span><span>Rose Pink</span></button>
                 </div>
             </div>
         </div>
         <div class="panel-footer">
-            <button id="customizer-reset" class="btn btn-secondary">Reset Customizer</button>
+            <button id="customizer-reset" class="btn btn-secondary">Reset Theme</button>
         </div>
+    </div>
+
+    <!-- LATEST UPDATES MARQUEE (Assignment 1 Requirement 7) -->
+    <div style="background: var(--primary-glow); border-bottom: 1px solid var(--border-color); padding: 0.4rem 1rem; font-size: 0.82rem; font-weight: 600; color: var(--primary);">
+        <marquee behavior="scroll" direction="left" scrollamount="6">
+            ✨ Welcome to Gourmet Delight Fine Dining Studio! Specials Today: Wagyu Truffle Steak with complimentary 2018 Vintage Wine | 20% Discount on Evening Reservations | Reserve online for VIP Chef Table access!
+        </marquee>
     </div>
 
     <!-- ==========================================
          3. MAIN LAYOUT WITH SEMANTIC SIDEBAR (<aside>)
          ========================================== -->
     <div class="page-container">
-        <!-- Main Content Area -->
+        <!-- Main Content Column -->
         <main class="main-content" id="main-content">
             
             <!-- 3. WELCOME BANNER SECTION -->
             <section id="home" class="welcome-banner animate-fade-in">
                 <div class="card-glow"></div>
                 <div class="welcome-header">
-                    <h2>Welcome to SyncFlow AI Workspace</h2>
+                    <span class="section-badge" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">Fine Dining Studio</span>
+                    <h2>Welcome to Gourmet Delight</h2>
                     <div class="pulse-indicator">
                         <span class="pulse-dot"></span>
-                        <span class="pulse-text">System Nodes: Online</span>
+                        <span class="pulse-text">Kitchen Status: Open & Serving</span>
                     </div>
                 </div>
                 
-                <!-- 14. Typing Effect Tagline Animation -->
+                <!-- 14. Typing Effect Animation -->
                 <p class="tagline-typing">
-                    Connecting multi-user workspaces with live execution analytics...
+                    Crafting Extraordinary Culinary Experiences & Gastronomic Excellence...
                 </p>
 
                 <!-- Inline CSS Demonstration -->
-                <p class="project-desc workspace-intro" style="line-height: 1.7; color: var(--text-secondary);">
-                    SyncFlow AI is an industry-level developer hub fusing concurrent canvas designing, markdown sync editor libraries, audio workspace channels, and automated telemetry tracking into a single unified high-contrast interface.
+                <p class="project-desc culinary-article" style="line-height: 1.7; color: var(--text-secondary);">
+                    Gourmet Delight is a premier fine-dining culinary studio offering handcrafted artisanal dishes, vintage wine pairings, and memorable dining experiences. Engineered with HTML5, CSS Grid, Flexbox, dynamic animations, and responsive controls.
                 </p>
 
                 <div class="mission-vision-grid">
                     <div class="mv-block vision">
                         <div class="mv-icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="12 6 12 12 16 14"></polygon></svg>
                         </div>
                         <div>
-                            <h3>Our Vision</h3>
-                            <p>To eliminate task latency by integrating context-aware model feedback loops straight into production workspace screens.</p>
+                            <h3>Our Culinary Vision</h3>
+                            <p>To fuse traditional culinary art with modern gastronomy, delivering unforgettable dining moments.</p>
                         </div>
                     </div>
                     <div class="mv-block mission">
                         <div class="mv-icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                         </div>
                         <div>
-                            <h3>Our Mission</h3>
-                            <p>To deliver microsecond websocket synchronization speed, data encryption layers, and automated telemetry tracking.</p>
+                            <h3>Our Quality Mission</h3>
+                            <p>Sourcing organic farm-fresh ingredients to prepare healthy, hygienic, and Michelin-inspired signature dishes.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- 15. Action Buttons with CSS Transitions -->
                 <div class="banner-actions" style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                    <a href="#registration" class="btn btn-primary" data-tooltip="Onboard Team to SyncFlow Workspace">Onboard Workspace</a>
-                    <a href="#drag-drop" class="btn btn-secondary" data-tooltip="Test Drag & Drop Sandbox">Open Drag & Drop Sandbox</a>
+                    <a href="#reservations" class="btn btn-primary" data-tooltip="Click to Reserve Table Online">Reserve Table Now</a>
+                    <a href="#menu" class="btn btn-secondary" data-tooltip="Explore Today's Menu">View Gourmet Menu</a>
                 </div>
             </section>
 
-            <!-- ABOUT SECTION -->
-            <section id="about" class="content-card info-card animate-slide-up">
+            <!-- 4. DASHBOARD CARDS & 5. DYNAMIC STATISTICS -->
+            <section class="stats-section animate-slide-up">
                 <div class="section-title-wrapper">
-                    <span class="section-badge">Semantic HTML5 Architecture</span>
-                    <h2>About SyncFlow AI Workspace</h2>
+                    <span class="section-badge">Live Operations Telemetry</span>
+                    <h2>Restaurant Telemetry & Statistics</h2>
                 </div>
-                <article class="about-article">
-                    <p>
-                        This application demonstrates standard HTML5 semantic architecture. By utilizing elements like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, and <code>&lt;footer&gt;</code>, the document ensures maximum accessibility, search engine optimization (SEO), and clean code maintainability.
-                    </p>
-                    <ul class="styled-list features-list">
-                        <li><strong>Advanced HTML5 Form Controls:</strong> Validated fields for Name, Email, Phone, Date, Preferred Time, Age, Gender, Skills, Address, and Contenteditable Notes with Spellcheck.</li>
-                        <li><strong>HTML5 Drag & Drop API:</strong> Draggable module cards (`draggable="true"`) with dragstart, dragover, dragleave, and drop event handlers.</li>
-                        <li><strong>Web Storage API:</strong> Persistent client-side data management using `localStorage` and temporary session state using `sessionStorage`.</li>
-                        <li><strong>Multi-CSS Demonstration:</strong> Inline CSS, Internal `<style>` with pseudo-elements, and External `style.css` design system.</li>
-                    </ul>
-                </article>
+                
+                <div class="stats-grid">
+                    <!-- Card 1 -->
+                    <div class="stat-card" data-tooltip="Real-time Available Dining Tables">
+                        <div class="stat-icon-wrapper green">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Available Tables</h3>
+                            <p class="stat-value" id="stat-tables">0</p>
+                            <span class="stat-change positive">● 15 Tables Open</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="stat-card" data-tooltip="Total Culinary Orders Today">
+                        <div class="stat-icon-wrapper orange">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Today's Orders</h3>
+                            <p class="stat-value" id="stat-orders">0</p>
+                            <span class="stat-change positive">↑ 182 Orders Served</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="stat-card" data-tooltip="Daily Revenue Earnings">
+                        <div class="stat-icon-wrapper purple">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Total Revenue</h3>
+                            <p class="stat-value" id="stat-revenue">0</p>
+                            <span class="stat-change positive">↑ 12.4% vs Yesterday</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="stat-card" data-tooltip="Overall Guest Satisfaction Rating">
+                        <div class="stat-icon-wrapper red">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Customer Ratings</h3>
+                            <p class="stat-value" id="stat-ratings">0</p>
+                            <span class="stat-change info">★ 4.9 out of 5.0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 31. CSS Progress Bars Demonstration -->
+                <div style="margin-top: 1.5rem;">
+                    <div class="progress-bar-wrapper">
+                        <div class="progress-bar-label">
+                            <span>Kitchen Order Capacity</span>
+                            <span>85% Peak Velocity</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill fill-85"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-wrapper">
+                        <div class="progress-bar-label">
+                            <span>Dining Room Occupancy</span>
+                            <span>72% Reserved</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill fill-72"></div>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-wrapper">
+                        <div class="progress-bar-label">
+                            <span>Hygiene & Safety Index</span>
+                            <span>98% Certified</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill fill-98"></div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <!-- 8. BANNER SLIDER CAROUSEL SECTION -->
+            <!-- 8. AUTOMATIC IMAGE / BANNER SLIDER (JavaScript Slider) -->
             <section class="slider-section content-card animate-slide-up">
                 <div class="slider-container">
                     <!-- Slide 1 -->
                     <div class="slide active">
                         <div class="slide-content">
-                            <span class="slide-tag">Canvas Sync</span>
-                            <h2>Real-Time Collaborative Sandbox</h2>
-                            <p>Draw layouts, sketch system designs, and structure workflows together with visual conflict resolution algorithms.</p>
-                            <a href="#features" class="slide-action">Explore Canvas Capabilities &rarr;</a>
+                            <span class="slide-tag">Signature Cuisine</span>
+                            <h2>Artisanal Gourmet Dishes</h2>
+                            <p>Handcrafted by our world-renowned executive chefs using organic farm-fresh ingredients.</p>
+                            <a href="#menu" class="slide-action">Explore Special Menu &rarr;</a>
                         </div>
                         <div class="slide-graphic">
                             <div class="canvas-mock">
                                 <div class="mock-grid"></div>
-                                <div class="mock-element shape-circle">SVG Engine</div>
-                                <div class="mock-element shape-rect">Analytics Portal</div>
+                                <div class="mock-element shape-circle">Gourmet</div>
+                                <div class="mock-element shape-rect">Plated Art</div>
                             </div>
                         </div>
                     </div>
@@ -385,17 +463,17 @@
                     <!-- Slide 2 -->
                     <div class="slide">
                         <div class="slide-content">
-                            <span class="slide-tag">Live Telemetry</span>
-                            <h2>Dynamic Contribution Graphing</h2>
-                            <p>Monitor keystroke distributions, cursor latency spikes, and system response parameters in live graphs.</p>
-                            <a href="#dashboard" class="slide-action">Open Telemetry Panel &rarr;</a>
+                            <span class="slide-tag">Fine Ambiance</span>
+                            <h2>Luxury Interior & Private Dining</h2>
+                            <p>Experience warm candlelight, acoustic live music, and elegant VIP private booths.</p>
+                            <a href="#reservations" class="slide-action">Reserve VIP Table &rarr;</a>
                         </div>
                         <div class="slide-graphic">
                             <div class="chart-mock">
                                 <div class="chart-bars">
-                                    <div class="chart-bar" style="--height: 50%"><span class="bar-value">50ms</span></div>
-                                    <div class="chart-bar highlight" style="--height: 80%"><span class="bar-value">80ms</span></div>
-                                    <div class="chart-bar" style="--height: 65%"><span class="bar-value">65ms</span></div>
+                                    <div class="chart-bar" style="--height: 70%"><span class="bar-value">Candle</span></div>
+                                    <div class="chart-bar highlight" style="--height: 95%"><span class="bar-value">Patio</span></div>
+                                    <div class="chart-bar" style="--height: 60%"><span class="bar-value">VIP</span></div>
                                 </div>
                             </div>
                         </div>
@@ -404,17 +482,17 @@
                     <!-- Slide 3 -->
                     <div class="slide">
                         <div class="slide-content">
-                            <span class="slide-tag">Automation</span>
-                            <h2>Context-Aware Model Pipelines</h2>
-                            <p>Refactor code segments, generate deployment logs, and review repository updates automatically using secure AI pipelines.</p>
-                            <a href="#services" class="slide-action">Configure ML Actions &rarr;</a>
+                            <span class="slide-tag">Master Chefs</span>
+                            <h2>Michelin-Starred Culinary Team</h2>
+                            <p>Led by Chef Antoine Laurent bringing authentic European & Fusion masterpieces to your plate.</p>
+                            <a href="#chefs" class="slide-action">Meet Our Chefs &rarr;</a>
                         </div>
                         <div class="slide-graphic">
                             <div class="ai-mock">
-                                <div class="node central">AI Core</div>
+                                <div class="node central">Culinary</div>
                                 <div class="node-ring"></div>
-                                <div class="node branch-1">Sync</div>
-                                <div class="node branch-2">Audit</div>
+                                <div class="node branch-1">Chef</div>
+                                <div class="node branch-2">Pastry</div>
                             </div>
                         </div>
                     </div>
@@ -430,190 +508,215 @@
                 </div>
             </section>
 
-            <!-- 4. DASHBOARD CARDS & 5. DYNAMIC STATISTICS -->
-            <section id="dashboard" class="stats-section animate-slide-up">
-                <div class="section-title-wrapper">
-                    <span class="section-badge">Live System Metrics</span>
-                    <h2>Workspace Operations Telemetry</h2>
-                </div>
-                
-                <div class="stats-grid">
-                    <!-- Card 1 -->
-                    <div class="stat-card" data-tooltip="Total Registered Team Members">
-                        <div class="stat-icon-wrapper blue">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
-                        </div>
-                        <div class="stat-details">
-                            <h3>Total Registered Users</h3>
-                            <p class="stat-value" id="stat-total-users">0</p>
-                            <span class="stat-change positive">↑ 14% growth monthly</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="stat-card" data-tooltip="Active Concurrent Collaborators">
-                        <div class="stat-icon-wrapper green">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        </div>
-                        <div class="stat-details">
-                            <h3>Active Collaborators</h3>
-                            <p class="stat-value" id="stat-active-users">0</p>
-                            <span class="stat-change positive">● Interactive Sync</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="stat-card" data-tooltip="Monthly Recurring Revenue">
-                        <div class="stat-icon-wrapper purple">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                        </div>
-                        <div class="stat-details">
-                            <h3>Platform Revenue</h3>
-                            <p class="stat-value" id="stat-revenue">0</p>
-                            <span class="stat-change positive">↑ 8.2% vs last week</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="stat-card" data-tooltip="Active Sprint Tasks Assigned">
-                        <div class="stat-icon-wrapper cyan">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                        </div>
-                        <div class="stat-details">
-                            <h3>Tasks Assigned</h3>
-                            <p class="stat-value" id="stat-tasks">0</p>
-                            <span class="stat-change info">4 High-priority sprints</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 31. CSS Progress Bars Demonstration -->
-                <div style="margin-top: 1.5rem;">
-                    <div class="progress-bar-wrapper">
-                        <div class="progress-bar-label">
-                            <span>Telemetry Node Load</span>
-                            <span>78% Capacity</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill fill-78"></div>
-                        </div>
-                    </div>
-
-                    <div class="progress-bar-wrapper">
-                        <div class="progress-bar-label">
-                            <span>Memory & Storage Quota</span>
-                            <span>64% Utilized</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill fill-64"></div>
-                        </div>
-                    </div>
-
-                    <div class="progress-bar-wrapper">
-                        <div class="progress-bar-label">
-                            <span>WebSocket System Uptime</span>
-                            <span>99.98% Operational</span>
-                        </div>
-                        <div class="progress-track">
-                            <div class="progress-fill fill-99"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 6. FEATURES SECTION & 7. SERVICES SECTION -->
+            <!-- 6. FEATURES SECTION (<ul> / <li>) & 7. SERVICES SECTION (<ol> / <li>) (Assignment 1 & CSS Assignment) -->
             <section id="features" class="features-services-grid animate-slide-up">
-                <!-- Features Card -->
+                <!-- Features Card (ul / li) -->
                 <div class="content-card info-card">
-                    <h3>Core Platform Features</h3>
-                    <p class="section-intro">SyncFlow AI delivers high-availability tools built directly into your browser:</p>
+                    <h3>Restaurant Key Features</h3>
+                    <p class="section-intro">Discover our signature amenities and digital hospitality features (HTML <code>&lt;ul&gt;</code> & <code>&lt;li&gt;</code>):</p>
                     <ul class="styled-list features-list">
                         <li class="list-item-animated">
-                            <strong>Sub-millisecond Document Sync:</strong> Collab with your team using robust OT conflict resolution protocols.
+                            <strong>Online Table Reservation:</strong> Instant table booking with live seating previews.
                         </li>
                         <li class="list-item-animated">
-                            <strong>Live Collaboration Analytics:</strong> Visualize cursor velocities, typing distribution, and session activity.
+                            <strong>Express Home Delivery:</strong> Temperature-controlled eco-friendly packaging.
                         </li>
                         <li class="list-item-animated">
-                            <strong>Context-Aware AI Assistant:</strong> Inline recommendations, PR summarization, and query optimization.
+                            <strong>Live Kitchen Stream:</strong> Observe master chefs crafting dishes in open kitchens.
                         </li>
                         <li class="list-item-animated">
-                            <strong>Unified Dashboard Widgets:</strong> Live tracking of active integrations, workspace metrics, and feedback.
+                            <strong>Private Party Hall:</strong> Acoustic soundproofing for celebrations and galas.
+                        </li>
+                        <li class="list-item-animated">
+                            <strong>Digital Touchless Payments:</strong> Apple Pay, UPI, Cards, and Crypto accepted.
                         </li>
                     </ul>
                 </div>
 
-                <!-- Services Card -->
+                <!-- Services Card (ol / li) -->
                 <div id="services" class="content-card info-card">
-                    <h3>Offered Cloud Services</h3>
-                    <p class="section-intro">Tailor the workspace platform to your organization using enterprise integration services:</p>
+                    <h3>Culinary Services Offered</h3>
+                    <p class="section-intro">Tailored dining and catering solutions (HTML <code>&lt;ol&gt;</code> & <code>&lt;li&gt;</code>):</p>
                     <ol class="styled-list services-list">
                         <li class="list-item-animated">
-                            <strong>AI Copilot Integration:</strong> Establish proprietary vector index connections to retrieve contextual workspace intelligence.
+                            <strong>Luxury Dine-In:</strong> Multi-course tasting menus paired with fine wines.
                         </li>
                         <li class="list-item-animated">
-                            <strong>Real-time Streaming Analytics Pipeline:</strong> Expose team contribution metrics and file operations.
+                            <strong>Gourmet Takeaway:</strong> Quick curbside pick-up for busy gourmets.
                         </li>
                         <li class="list-item-animated">
-                            <strong>Single-Sign-On (SSO) & Compliance:</strong> Deploy enterprise-grade active directory configurations and SAML.
+                            <strong>Corporate & Wedding Catering:</strong> Full-service catering for up to 500 guests.
                         </li>
                         <li class="list-item-animated">
-                            <strong>Dedicated Workspace Hosting:</strong> Deploy dedicated workspace instances inside secure Kubernetes private clouds.
+                            <strong>VIP Private Chef Table:</strong> Custom tasting menu crafted right at your table.
                         </li>
                     </ol>
                 </div>
             </section>
 
-            <!-- 12. ADVANCED REGISTRATION FORM & 13. FORM VALIDATION -->
-            <section id="registration" class="content-card form-section animate-slide-up">
+            <!-- CHEFS SECTION (Requirement 26 - Skew & Scale Transforms) -->
+            <section id="chefs" class="content-card chefs-section animate-slide-up">
+                <div class="section-title-wrapper">
+                    <span class="section-badge">Master Culinary Artists</span>
+                    <h2>Meet Our Executive Chefs</h2>
+                </div>
+                
+                <div class="chefs-grid">
+                    <div class="chef-card transform-hover" data-tooltip="Executive Chef - European Fusion">
+                        <div class="chef-avatar">👨‍🍳</div>
+                        <h4>Chef Antoine Laurent</h4>
+                        <span class="chef-title">Executive Head Chef</span>
+                        <p>20+ years of culinary experience in Michelin-starred French and Mediterranean restaurants.</p>
+                    </div>
+
+                    <div class="chef-card transform-hover" data-tooltip="Pastry Chef - Artisanal Desserts">
+                        <div class="chef-avatar">👩‍🍳</div>
+                        <h4>Chef Sophia Chen</h4>
+                        <span class="chef-title">Master Pastry Architect</span>
+                        <p>Specializes in French soufflés, chocolate sculptures, and handcrafted organic desserts.</p>
+                    </div>
+
+                    <div class="chef-card transform-hover" data-tooltip="Sous Chef - Farm-to-Table">
+                        <div class="chef-avatar">🧑‍🍳</div>
+                        <h4>Chef Marcus Vance</h4>
+                        <span class="chef-title">Senior Sous Chef</span>
+                        <p>Expert in farm-to-table organic grilling, artisanal sauces, and seafood pairings.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 29. GALLERY SECTION (Image Hover Effects: Zoom, Blur, Overlay) -->
+            <section id="gallery" class="content-card gallery-section animate-slide-up">
+                <div class="section-title-wrapper">
+                    <span class="section-badge">Visual Showcase</span>
+                    <h2>Restaurant Gallery & Ambiance</h2>
+                </div>
+                <p class="section-intro">Hover over gallery cards to inspect CSS hover transformations (Zoom, Blur, Overlay):</p>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item zoom-effect" data-tooltip="Candlelight Evening Dining Room">
+                        <div class="gallery-placeholder bg-img-1">
+                            <span class="gallery-tag">Interior</span>
+                        </div>
+                        <div class="gallery-overlay">
+                            <h5>Main Dining Room</h5>
+                            <p>Warm ambient lighting with acoustics</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item zoom-effect" data-tooltip="Artisanal Steak & Truffle Butter">
+                        <div class="gallery-placeholder bg-img-2">
+                            <span class="gallery-tag">Signature Dish</span>
+                        </div>
+                        <div class="gallery-overlay">
+                            <h5>Wagyu Truffle Steak</h5>
+                            <p>Seared with rosemary butter</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item zoom-effect" data-tooltip="Outdoor Garden Patio">
+                        <div class="gallery-placeholder bg-img-3">
+                            <span class="gallery-tag">Outdoor Patio</span>
+                        </div>
+                        <div class="gallery-overlay">
+                            <h5>Garden Terrace</h5>
+                            <p>Open-air seating with fountain views</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- APPLICATION MODULES TABLE (Assignment 1 Requirement 9) -->
+            <section id="reports" class="content-card table-section animate-slide-up">
+                <div class="section-title-wrapper">
+                    <span class="section-badge">Assignment 1 Requirement</span>
+                    <h2>Application Architecture Modules Table</h2>
+                </div>
+                <p class="section-intro">System structure of the Gourmet Delight platform architecture:</p>
+                <div class="table-container" style="overflow-x:auto;">
+                    <table class="modules-table" style="width:100%; border-collapse:collapse; background:var(--bg-base); border-radius:10px; border:1px solid var(--border-color);">
+                        <thead>
+                            <tr style="background:var(--primary-glow); border-bottom:1px solid var(--border-color); text-align:left;">
+                                <th style="padding:0.75rem 1rem;">Module ID</th>
+                                <th style="padding:0.75rem 1rem;">Module Name</th>
+                                <th style="padding:0.75rem 1rem;">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid var(--border-color);">
+                                <td style="padding:0.75rem 1rem;"><code>GD-RES-01</code></td>
+                                <td style="padding:0.75rem 1rem;"><strong>Reservation Engine</strong></td>
+                                <td style="padding:0.75rem 1rem;">Handles table bookings, guest counts, seating preferences, and time slots.</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border-color);">
+                                <td style="padding:0.75rem 1rem;"><code>GD-DND-02</code></td>
+                                <td style="padding:0.75rem 1rem;"><strong>HTML5 Drag & Drop Sandbox</strong></td>
+                                <td style="padding:0.75rem 1rem;">Draggable order module cards (`draggable="true"`) between active workspace dropzones.</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid var(--border-color);">
+                                <td style="padding:0.75rem 1rem;"><code>GD-STORAGE-03</code></td>
+                                <td style="padding:0.75rem 1rem;"><strong>Web Storage Manager</strong></td>
+                                <td style="padding:0.75rem 1rem;">Manages permanent `localStorage` profiles and temporary `sessionStorage` tokens.</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.75rem 1rem;"><code>GD-ANALYTICS-04</code></td>
+                                <td style="padding:0.75rem 1rem;"><strong>Dynamic Operations Telemetry</strong></td>
+                                <td style="padding:0.75rem 1rem;">Animates orders served, table capacity, and revenue stats via JavaScript.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 12. RESERVATION / REGISTRATION FORM (Requirements 12 & 13 + Advanced Forms Assignment) -->
+            <section id="reservations" class="content-card form-section animate-slide-up">
                 <div class="section-title-wrapper">
                     <span class="section-badge">Advanced HTML5 Form</span>
-                    <h2>Register Your Team Workspace</h2>
+                    <h2>Reserve Your Dining Table / Register Account</h2>
                 </div>
-                <p class="section-intro">Onboard your team to get custom API keys, dedicated hosting URLs, and live analytics streams:</p>
+                <p class="section-intro">Fill out the reservation form below. All fields feature client JavaScript validation:</p>
                 
-                <form action="#" method="POST" id="user-registration-form" class="styled-form" novalidate>
+                <form action="#" method="POST" id="restaurant-reservation-form" class="styled-form" novalidate>
                     <div class="form-grid">
-                        
-                        <!-- Name Field -->
+                        <!-- Customer Name -->
                         <div class="form-group">
-                            <label for="reg-name">Full Name <span class="req-star">*</span></label>
-                            <input type="text" id="reg-name" name="name" placeholder="Bhuvanesh S" required>
+                            <label for="res-name">Customer Full Name <span class="req-star">*</span></label>
+                            <input type="text" id="res-name" name="name" placeholder="Bhuvanesh S" required>
                         </div>
 
-                        <!-- Email Field -->
+                        <!-- Email -->
                         <div class="form-group">
-                            <label for="reg-email">Work Email <span class="req-star">*</span></label>
-                            <input type="email" id="reg-email" name="email" placeholder="bhuvanesh@fullstacklab.edu" required>
+                            <label for="res-email">Email Address <span class="req-star">*</span></label>
+                            <input type="email" id="res-email" name="email" placeholder="bhuvanesh@fullstacklab.edu" required>
                         </div>
 
-                        <!-- Phone Number -->
+                        <!-- Phone -->
                         <div class="form-group">
-                            <label for="reg-phone">Phone Number <span class="req-star">*</span></label>
-                            <input type="tel" id="reg-phone" name="phone" pattern="[\+]?[0-9\s\-]{10,15}" placeholder="+91 98765 43210" required>
+                            <label for="res-phone">Phone Number <span class="req-star">*</span></label>
+                            <input type="tel" id="res-phone" name="phone" pattern="[\+]?[0-9\s\-]{10,15}" placeholder="+91 98765 43210" required>
                             <small class="field-hint">Format: 10-15 digits</small>
                         </div>
 
-                        <!-- Date of Birth -->
+                        <!-- Date -->
                         <div class="form-group">
-                            <label for="reg-dob">Date of Birth <span class="req-star">*</span></label>
-                            <input type="date" id="reg-dob" name="dob" required>
+                            <label for="res-date">Reservation / Birth Date <span class="req-star">*</span></label>
+                            <input type="date" id="res-date" name="date" required>
                         </div>
 
-                        <!-- Preferred Appointment Time -->
+                        <!-- Time -->
                         <div class="form-group">
-                            <label for="reg-time">Preferred Appointment Time <span class="req-star">*</span></label>
-                            <input type="time" id="reg-time" name="preferred_time" required>
+                            <label for="res-time">Preferred Appointment Time <span class="req-star">*</span></label>
+                            <input type="time" id="res-time" name="time" required>
                         </div>
 
-                        <!-- Age Field -->
+                        <!-- Age / Number of Guests -->
                         <div class="form-group">
-                            <label for="reg-age">Age (Years) <span class="req-star">*</span></label>
-                            <input type="number" id="reg-age" name="age" min="18" max="100" placeholder="21" required>
-                            <small class="field-hint">Range: 18 to 100 years</small>
+                            <label for="res-guests">Age / Number of Guests <span class="req-star">*</span></label>
+                            <input type="number" id="res-guests" name="guests" min="1" max="100" placeholder="2" required>
+                            <small class="field-hint">Allowed range: 1 to 100</small>
                         </div>
 
-                        <!-- Gender Radio Selection -->
+                        <!-- Gender Radio Buttons -->
                         <div class="form-group full-width-sm">
                             <label>Gender <span class="req-star">*</span></label>
                             <div class="gender-radio-group" style="display:flex; gap:1.25rem; margin-top:0.35rem;">
@@ -623,51 +726,51 @@
                             </div>
                         </div>
 
-                        <!-- Skills Checkboxes Grid -->
+                        <!-- Dining Preferences / Skills Checkboxes -->
                         <div class="form-group full-width">
-                            <label>Technical Skills & Interests:</label>
+                            <label>Seating Preferences & Special Services:</label>
                             <div class="skills-checkbox-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:0.75rem; background:var(--bg-base); padding:1rem; border-radius:10px; border:1px solid var(--border-color); margin-top:0.35rem;">
-                                <label><input type="checkbox" name="skills" value="HTML5 Semantics" checked> HTML5 Semantics</label>
-                                <label><input type="checkbox" name="skills" value="Advanced Form Controls" checked> Advanced Form Controls</label>
-                                <label><input type="checkbox" name="skills" value="HTML5 Drag & Drop API"> Drag & Drop API</label>
-                                <label><input type="checkbox" name="skills" value="Web Storage API (Local & Session)"> Web Storage API</label>
+                                <label><input type="checkbox" name="skills" value="Indoor Main Dining Room" checked> Indoor Dining</label>
+                                <label><input type="checkbox" name="skills" value="Outdoor Garden Terrace" checked> Outdoor Garden Patio</label>
+                                <label><input type="checkbox" name="skills" value="Private VIP Chef Table"> VIP Chef Table</label>
+                                <label><input type="checkbox" name="skills" value="Complimentary Wine Service"> Wine Tasting</label>
                             </div>
                         </div>
 
-                        <!-- Address Textarea -->
+                        <!-- Full Permanent Address Textarea -->
                         <div class="form-group full-width">
-                            <label for="reg-address">Company Headquarters Address <span class="req-star">*</span></label>
-                            <textarea id="reg-address" name="address" rows="3" placeholder="Suite 400, 123 Tech Blvd, Silicon Valley, CA" required></textarea>
+                            <label for="res-address">Full Address / Location Details <span class="req-star">*</span></label>
+                            <textarea id="res-address" name="address" rows="3" placeholder="Department of IT, FullStackLab Campus, Tech City - 600001" required></textarea>
                         </div>
 
                         <!-- Contenteditable Area with Spellcheck -->
                         <div class="form-group full-width">
-                            <label for="reg-editable-notes">Additional Workspace Notes (Contenteditable & Spellcheck)</label>
-                            <div id="reg-editable-notes" class="editable-content-box" contenteditable="true" spellcheck="true" style="min-height:80px; padding:0.85rem; background:var(--bg-base); border:1.5px dashed var(--border-color); border-radius:10px; outline:none;">
-                                Type special requests or notes here... HTML5 spellcheck is enabled!
+                            <label for="res-editable-notes">Additional Dietary Notes (Contenteditable & Spellcheck)</label>
+                            <div id="res-editable-notes" class="editable-content-box" contenteditable="true" spellcheck="true" style="min-height:80px; padding:0.85rem; background:var(--bg-base); border:1.5px dashed var(--border-color); border-radius:10px; outline:none;">
+                                Type special dietary requests here... HTML5 spellcheck is enabled on this section!
                             </div>
                         </div>
                     </div>
 
-                    <!-- Form Action Buttons -->
-                    <div class="form-buttons" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
-                        <button type="submit" class="btn btn-primary" id="btn-submit-form" data-tooltip="Submit Team Registration">Onboard Team</button>
-                        <button type="reset" class="btn btn-secondary" id="btn-reset-form" data-tooltip="Reset All Fields">Reset Fields</button>
-                        <button type="button" class="btn btn-danger" id="btn-cancel-form" data-tooltip="Cancel Registration" style="background:var(--danger); color:white;">Cancel Operation</button>
+                    <!-- 15. Action Buttons with CSS Transitions -->
+                    <div class="form-buttons" style="margin-top: 1.5rem; display:flex; gap:1rem;">
+                        <button type="submit" class="btn btn-primary" id="btn-submit-res" data-tooltip="Confirm & Reserve Table">Reserve Table</button>
+                        <button type="reset" class="btn btn-secondary" id="btn-reset-res" data-tooltip="Reset Form Fields">Reset Fields</button>
+                        <button type="button" class="btn btn-danger" id="btn-cancel-res" data-tooltip="Cancel Operation" style="background:var(--danger); color:white;">Cancel Operation</button>
                     </div>
                 </form>
             </section>
 
-            <!-- HTML5 DRAG AND DROP API SECTION -->
+            <!-- HTML5 DRAG AND DROP API SECTION (Assignment 4 Requirements 5, 6, 7) -->
             <section id="drag-drop" class="content-card dragdrop-section animate-slide-up">
                 <div class="section-title-wrapper">
-                    <span class="section-badge">HTML5 Drag & Drop API</span>
-                    <h2>Interactive Workspace Module Sandbox</h2>
+                    <span class="section-badge">Assignment 4 Requirement</span>
+                    <h2>HTML5 Drag and Drop Culinary Workspace API</h2>
                 </div>
-                <p class="section-intro">Drag module cards from the <strong>Source Palette</strong> and drop them into <strong>Active Workspace</strong> or <strong>Staging Archive</strong>:</p>
+                <p class="section-intro">Drag dish module cards from the <strong>Source Palette</strong> and drop them into the <strong>Active Order Zone</strong> or <strong>Completed Archive</strong>:</p>
 
                 <div class="dnd-status-banner" id="dnd-status-banner" style="background:var(--primary-glow); border:1px solid var(--primary); border-radius:10px; padding:0.75rem 1.25rem; font-size:0.88rem; margin-bottom:1.5rem;">
-                    💡 <span id="dnd-status-text">Status: Ready! Drag any module box below.</span>
+                    💡 <span id="dnd-status-text">Status: Ready! Click and drag any culinary box below.</span>
                 </div>
 
                 <div class="drag-drop-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.25rem;">
@@ -676,55 +779,55 @@
                     <div class="dnd-column" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:12px; padding:1rem;">
                         <div class="dnd-column-header" style="display:flex; justify-content:space-between; margin-bottom:0.85rem;">
                             <h3>Source Palette</h3>
-                            <span class="item-count" id="count-source" style="font-size:0.75rem; background:var(--border-color); padding:0.2rem 0.5rem; border-radius:10px;">4 Modules</span>
+                            <span class="item-count" id="count-source" style="font-size:0.75rem; background:var(--border-color); padding:0.2rem 0.5rem; border-radius:10px;">4 Items</span>
                         </div>
                         <div class="drop-target-area source-palette" id="drop-target-source" data-zone="Source Palette" style="min-height:260px; border:2px dashed var(--border-color); border-radius:10px; padding:0.75rem; display:flex; flex-direction:column; gap:0.75rem;">
                             
-                            <div class="draggable-card card-purple" draggable="true" id="drag-item-1" data-title="AI Analytics Core" style="background:var(--bg-surface); border:1px solid var(--border-color); padding:0.85rem; border-radius:8px; cursor:grab;">
-                                <h4>AI Analytics Core</h4>
-                                <p style="font-size:0.78rem; color:var(--text-secondary);">Real-time telemetry algorithms.</p>
+                            <div class="draggable-card card-purple" draggable="true" id="drag-item-1" data-title="Wagyu Truffle Steak" style="background:var(--bg-surface); border:1px solid var(--border-color); padding:0.85rem; border-radius:8px; cursor:grab;">
+                                <h4>Wagyu Truffle Steak</h4>
+                                <p style="font-size:0.78rem; color:var(--text-secondary);">Seared with rosemary butter.</p>
                             </div>
 
-                            <div class="draggable-card card-blue" draggable="true" id="drag-item-2" data-title="Web Storage Manager" style="background:var(--bg-surface); border:1px solid var(--border-color); padding:0.85rem; border-radius:8px; cursor:grab;">
-                                <h4>Web Storage Manager</h4>
-                                <p style="font-size:0.78rem; color:var(--text-secondary);">Local & Session storage sync.</p>
+                            <div class="draggable-card card-blue" draggable="true" id="drag-item-2" data-title="Artisanal Seafood Medley" style="background:var(--bg-surface); border:1px solid var(--border-color); padding:0.85rem; border-radius:8px; cursor:grab;">
+                                <h4>Artisanal Seafood Medley</h4>
+                                <p style="font-size:0.78rem; color:var(--text-secondary);">Lobster tail & king prawns.</p>
                             </div>
 
-                            <div class="draggable-card card-green" draggable="true" id="drag-item-3" data-title="WebSockets Gateway" style="background:var(--bg-surface); border:1px solid var(--border-color); padding:0.85rem; border-radius:8px; cursor:grab;">
-                                <h4>WebSockets Gateway</h4>
-                                <p style="font-size:0.78rem; color:var(--text-secondary);">Low latency socket channels.</p>
+                            <div class="draggable-card card-green" draggable="true" id="drag-item-3" data-title="2018 Vintage Wine Pairing" style="background:var(--bg-surface); border:1px solid var(--border-color); padding:0.85rem; border-radius:8px; cursor:grab;">
+                                <h4>2018 Vintage Wine Pairing</h4>
+                                <p style="font-size:0.78rem; color:var(--text-secondary);">Bordeaux aged red wine.</p>
                             </div>
 
-                            <div class="draggable-card card-orange" draggable="true" id="drag-item-4" data-title="Semantic Grid Layout" style="background:var(--bg-surface); border:1px solid var(--border-color); padding:0.85rem; border-radius:8px; cursor:grab;">
-                                <h4>Semantic Grid Layout</h4>
-                                <p style="font-size:0.78rem; color:var(--text-secondary);">Header, Nav, Aside, Footer tags.</p>
+                            <div class="draggable-card card-orange" draggable="true" id="drag-item-4" data-title="French Chocolate Soufflé" style="background:var(--bg-surface); border:1px solid var(--border-color); padding:0.85rem; border-radius:8px; cursor:grab;">
+                                <h4>French Chocolate Soufflé</h4>
+                                <p style="font-size:0.78rem; color:var(--text-secondary);">Handcrafted organic dessert.</p>
                             </div>
 
                         </div>
                     </div>
 
-                    <!-- Active Workspace Dropzone -->
+                    <!-- Active Order Zone -->
                     <div class="dnd-column" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:12px; padding:1rem;">
                         <div class="dnd-column-header" style="display:flex; justify-content:space-between; margin-bottom:0.85rem;">
-                            <h3>Active Workspace</h3>
-                            <span class="item-count" id="count-target1" style="font-size:0.75rem; background:var(--border-color); padding:0.2rem 0.5rem; border-radius:10px;">0 Modules</span>
+                            <h3>Active Order Zone</h3>
+                            <span class="item-count" id="count-target1" style="font-size:0.75rem; background:var(--border-color); padding:0.2rem 0.5rem; border-radius:10px;">0 Items</span>
                         </div>
-                        <div class="drop-target-area active-dropzone" id="drop-target-active" data-zone="Active Workspace" style="min-height:260px; border:2px dashed var(--border-color); border-radius:10px; padding:0.75rem; display:flex; flex-direction:column; gap:0.75rem;">
+                        <div class="drop-target-area active-dropzone" id="drop-target-active" data-zone="Active Order Zone" style="min-height:260px; border:2px dashed var(--border-color); border-radius:10px; padding:0.75rem; display:flex; flex-direction:column; gap:0.75rem;">
                             <div class="drop-placeholder" id="placeholder-active" style="margin:auto; text-align:center; color:var(--text-muted); font-size:0.83rem;">
-                                Drop Draggable Modules Here to Activate
+                                Drop Draggable Dishes Here to Activate
                             </div>
                         </div>
                     </div>
 
-                    <!-- Staging Archive Dropzone -->
+                    <!-- Completed Archive Dropzone -->
                     <div class="dnd-column" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:12px; padding:1rem;">
                         <div class="dnd-column-header" style="display:flex; justify-content:space-between; margin-bottom:0.85rem;">
-                            <h3>Staging Archive</h3>
-                            <span class="item-count" id="count-target2" style="font-size:0.75rem; background:var(--border-color); padding:0.2rem 0.5rem; border-radius:10px;">0 Modules</span>
+                            <h3>Completed Archive</h3>
+                            <span class="item-count" id="count-target2" style="font-size:0.75rem; background:var(--border-color); padding:0.2rem 0.5rem; border-radius:10px;">0 Items</span>
                         </div>
-                        <div class="drop-target-area archive-dropzone" id="drop-target-archive" data-zone="Staging Archive" style="min-height:260px; border:2px dashed var(--border-color); border-radius:10px; padding:0.75rem; display:flex; flex-direction:column; gap:0.75rem;">
+                        <div class="drop-target-area archive-dropzone" id="drop-target-archive" data-zone="Completed Archive" style="min-height:260px; border:2px dashed var(--border-color); border-radius:10px; padding:0.75rem; display:flex; flex-direction:column; gap:0.75rem;">
                             <div class="drop-placeholder" id="placeholder-archive" style="margin:auto; text-align:center; color:var(--text-muted); font-size:0.83rem;">
-                                Drop Modules Here to Archive
+                                Drop Dishes Here to Archive
                             </div>
                         </div>
                     </div>
@@ -732,13 +835,13 @@
                 </div>
             </section>
 
-            <!-- HTML5 WEB STORAGE API SECTION -->
+            <!-- HTML5 WEB STORAGE API SECTION (Assignment 4 Requirements 8 to 11) -->
             <section id="storage" class="content-card storage-section animate-slide-up">
                 <div class="section-title-wrapper">
-                    <span class="section-badge">Web Storage API</span>
-                    <h2>Local Storage & Session Storage Controls</h2>
+                    <span class="section-badge">Assignment 4 Requirement</span>
+                    <h2>HTML5 Web Storage API (Local Storage & Session Storage)</h2>
                 </div>
-                <p class="section-intro">Save, retrieve, and clear data in <code>localStorage</code> (permanent) or <code>sessionStorage</code> (temporary):</p>
+                <p class="section-intro">Save, retrieve, and wipe persistent data in <code>localStorage</code> or temporary data in <code>sessionStorage</code>:</p>
 
                 <div class="storage-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1.25rem; margin-bottom:1.5rem;">
                     
@@ -753,11 +856,11 @@
                             <input type="text" id="local-user-name" placeholder="Bhuvanesh S">
                         </div>
                         <div class="form-group">
-                            <label for="local-user-role">Preferred Role:</label>
+                            <label for="local-user-role">Preferred Seating Role:</label>
                             <select id="local-user-role" style="padding:0.65rem; border-radius:8px; border:1px solid var(--border-color); background:var(--bg-surface); color:var(--text-primary);">
-                                <option value="Full Stack Developer">Full Stack Developer</option>
-                                <option value="UI/UX Engineer">UI/UX Engineer</option>
-                                <option value="System Architect">System Architect</option>
+                                <option value="VIP Patron">VIP Patron</option>
+                                <option value="Executive Chef">Executive Chef</option>
+                                <option value="Table Guest">Table Guest</option>
                             </select>
                         </div>
                         <div class="storage-actions" style="display:flex; gap:0.5rem;">
@@ -775,11 +878,11 @@
                         </div>
                         <div class="form-group">
                             <label for="session-token">Temporary Session Token:</label>
-                            <input type="text" id="session-token" placeholder="SF-SESS-98234-AX" readonly>
+                            <input type="text" id="session-token" placeholder="GD-SESS-98234-IT" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="session-workspace">Active Workspace ID:</label>
-                            <input type="text" id="session-workspace" placeholder="WS-LAB-2026-IT101">
+                            <label for="session-workspace">Active Table Session ID:</label>
+                            <input type="text" id="session-workspace" placeholder="TABLE-VIP-2026-01">
                         </div>
                         <div class="storage-actions" style="display:flex; gap:0.5rem;">
                             <button id="btn-save-session" class="btn btn-primary" style="padding:0.45rem 0.85rem; font-size:0.78rem;">Save Session Data</button>
@@ -802,39 +905,39 @@
                 </div>
             </section>
 
-            <!-- CONTACT SECTION -->
+            <!-- 17. CONTACT SECTION -->
             <section id="contact" class="content-card contact-section animate-slide-up">
                 <div class="section-title-wrapper">
-                    <span class="section-badge">Get in Touch</span>
-                    <h2>Contact & Telemetry Support</h2>
+                    <span class="section-badge">Location & Support</span>
+                    <h2>Contact Gourmet Delight</h2>
                 </div>
-                <p class="section-intro">Reach out regarding workspace encryption, pricing models, or support:</p>
+                <p class="section-intro">Reach out for private party bookings, catering inquiries, or table reservations:</p>
                 <div class="contact-details-grid">
                     <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
+                        <div class="contact-icon">📍</div>
                         <div>
-                            <h4>Email Us</h4>
-                            <p><a href="mailto:support@syncflow.ai">support@syncflow.ai</a></p>
+                            <h4>Address</h4>
+                            <p>Grand Culinary Plaza, 5th Avenue, Suite 100, Tech City - 600001</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📞</div>
                         <div>
-                            <h4>Support Line</h4>
-                            <p><a href="tel:+15550199">+1 (555) 019-9821</a></p>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+919876543210">+91 (555) 019-2834</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon">✉️</div>
                         <div>
-                            <h4>Headquarters</h4>
-                            <p>Tech Park Tower 5, Innovation Way, CA</p>
+                            <h4>Email Us</h4>
+                            <p><a href="mailto:reservations@gourmetdelight.com">reservations@gourmetdelight.com</a></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="social-links-area">
-                    <span class="social-title">Follow telemetry updates:</span>
+                    <span class="social-title">Connect with our updates:</span>
                     <div class="social-buttons">
                         <a href="https://github.com/Iam-Bhuvanesh/FullStackLab" class="social-btn" target="_blank" rel="noopener noreferrer" data-tooltip="Visit GitHub Repo">GitHub</a>
                         <a href="https://vercel.com" class="social-btn" target="_blank" rel="noopener noreferrer" data-tooltip="View Live Vercel Deployment">Vercel Deployment</a>
@@ -851,11 +954,11 @@
                 <div class="help-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.25rem;">
                     <div class="help-card" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:10px; padding:1rem;">
                         <h4 style="color:var(--primary); font-size:0.92rem; margin-bottom:0.4rem;">1. Form Validation</h4>
-                        <p style="font-size:0.82rem; color:var(--text-secondary);">Fill out the registration fields. Try invalid email/phone/age inputs to trigger dynamic JS error warnings.</p>
+                        <p style="font-size:0.82rem; color:var(--text-secondary);">Fill out the reservation fields. Try invalid email/phone/guest inputs to trigger dynamic JS error warnings.</p>
                     </div>
                     <div class="help-card" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:10px; padding:1rem;">
                         <h4 style="color:var(--primary); font-size:0.92rem; margin-bottom:0.4rem;">2. Drag and Drop</h4>
-                        <p style="font-size:0.82rem; color:var(--text-secondary);">Drag module cards from Source Palette and drop into Active Workspace or Staging Archive.</p>
+                        <p style="font-size:0.82rem; color:var(--text-secondary);">Drag dish module cards from Source Palette and drop into Active Order Zone or Completed Archive.</p>
                     </div>
                     <div class="help-card" style="background:var(--bg-base); border:1px solid var(--border-color); border-radius:10px; padding:1rem;">
                         <h4 style="color:var(--primary); font-size:0.92rem; margin-bottom:0.4rem;">3. Web Storage</h4>
@@ -871,7 +974,7 @@
              ========================================== -->
         <aside class="sidebar-aside" aria-label="Sidebar Widgets">
             <div class="aside-widget profile-widget">
-                <h4 class="widget-title">Developer Profile</h4>
+                <h4 class="widget-title">Chef Developer Info</h4>
                 <div class="profile-card">
                     <div class="profile-avatar">BS</div>
                     <div class="profile-details">
@@ -883,7 +986,7 @@
             </div>
 
             <div class="aside-widget telemetry-widget">
-                <h4 class="widget-title">HTML5 & CSS Specs Audit</h4>
+                <h4 class="widget-title">Course Specs Audit</h4>
                 <ul class="aside-feature-list">
                     <li><span class="check-icon">✓</span> Multi-CSS (Inline, Internal, External)</li>
                     <li><span class="check-icon">✓</span> CSS Grid & Flexbox</li>
@@ -895,9 +998,9 @@
             </div>
 
             <div class="aside-widget tip-widget">
-                <h4 class="widget-title">💡 Workspace Tip</h4>
+                <h4 class="widget-title">🍷 Chef's Special</h4>
                 <p>
-                    Use the Dark Console toggle in the navigation bar to switch between Sleek Slate (Light Mode) and Cyber Slate (Dark Mode)!
+                    Pair your wagyu steak with our 2018 Vintage Bordeaux Red. Reserve online for complimentary dessert!
                 </p>
             </div>
         </aside>
@@ -912,14 +1015,14 @@
     <footer class="app-footer">
         <div class="footer-container">
             <div class="footer-info">
-                <p>&copy; 2026 SyncFlow AI Web Suite. All Rights Reserved.</p>
+                <p>&copy; 2026 Gourmet Delight Culinary Studio. All Rights Reserved.</p>
                 <p>Designed & Developed by <strong class="footer-designer">Bhuvanesh S</strong> (Register No: <strong>23IT101</strong>)</p>
                 <p>Department of Information Technology, FullStackLab | Course Code: 23IT721</p>
             </div>
             <div class="footer-icons">
                 <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#registration">Registration</a>
+                <a href="#menu">Menu</a>
+                <a href="#reservations">Reservations</a>
                 <a href="#drag-drop">Drag & Drop</a>
                 <a href="#storage">Storage</a>
             </div>

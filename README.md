@@ -1,4 +1,4 @@
-# SyncFlow AI - Interactive Workspace Dashboard & Development Studio
+# Gourmet Delight - Fine Dining & Culinary Experience Studio
 
 ### 📋 Course Metadata
 * **Course Code & Title:** 23IT721 – Full Stack Development Laboratory
@@ -10,77 +10,85 @@
 
 ## 🚀 Project Overview
 
-**SyncFlow AI** is a professional, high-performance web application designed for **Full Stack Development Laboratory Assignments**.
+**Gourmet Delight** is a luxury fine-dining restaurant web application built for the **Full Stack Development Laboratory**.
 
-The application preserves the modern **SyncFlow AI** SaaS developer theme while incorporating **ALL features and requirements from every assignment**:
-1. **Multi-CSS Stylesheets:** Inline CSS (`style="..."`), Internal CSS (`<style>` for `::selection`, `::first-letter`, `::first-line`, `[data-tooltip]` tooltips, and `@keyframes` progress bars), and External CSS (`style.css` variables, Grid, Flexbox).
-2. **Advanced HTML5 Form Controls & Validation:** Name, Email, Phone pattern, Date of Birth, Preferred Time, Age (18-100), Gender radio buttons, Technical Skills checkboxes, Address textarea, and Contenteditable notes with spellcheck.
-3. **HTML5 Drag & Drop API:** Interactive module cards (`draggable="true"`) with dragstart, dragover, dragleave, and drop event handlers across active dropzones.
-4. **HTML5 Web Storage API:** Persistent `localStorage` and temporary `sessionStorage` management with terminal inspection screen.
-5. **Interactive UI Features:** Dynamic stats counters (`requestAnimationFrame`), 5-second automatic image slider carousel, show/hide telemetry notification drawer, Light/Dark theme switcher, floating back-to-top button, sticky navigation bar, and responsive layout.
-
----
-
-## 📋 Comprehensive Assignment Verification Matrix
-
-| S.No | Component / Feature | Requirements Description | Status |
-|---|---|---|---|
-| 1 | Professional Theme | Applied modern SaaS white contrast & dark cyber theme with CSS custom variables | ✅ Implemented |
-| 2 | Navigation Bar | Responsive menu with `Home`, `About`, `Dashboard`, `Features`, `Services`, `Registration`, `Drag & Drop`, `Storage`, `Contact`, `Help`, `Logout` + sticky navbar | ✅ Implemented |
-| 3 | Welcome Banner | App title (**SyncFlow AI**), tagline, typing animation, vision, mission, and live system status | ✅ Implemented |
-| 4 | Dashboard Cards | Animated cards displaying Registered Users, Active Collaborators, Revenue, and Tasks Assigned | ✅ Implemented |
-| 5 | Dynamic Statistics | JavaScript `requestAnimationFrame` counters dynamically ticking metrics on load | ✅ Implemented |
-| 6 | Features Section | Animated cards detailing Sub-millisecond Sync, Live Analytics, AI Assistant, and Huddle Rooms | ✅ Implemented |
-| 7 | Services Section | AI Copilot Integration, Analytics Pipeline, SSO & SAML Compliance, and Dedicated Hosting | ✅ Implemented |
-| 8 | Image/Banner Slider | Automatic 5-second carousel showcasing Canvas Sandbox, Contribution Graphing, and AI Pipelines | ✅ Implemented |
-| 9 | Date & Time Display | Real-time live date and time updating every second | ✅ Implemented |
-| 10 | Theme Switcher | Light Mode, Dark Console Mode, and Deep Space AMOLED mode implemented using JavaScript | ✅ Implemented |
-| 11 | Notification Panel | Show/Hide sliding drawer panel displaying system telemetry alerts and clear all button | ✅ Implemented |
-| 12 | Registration Form | Onboarding form with Name, Email, Phone, Date, Time, Age, Gender, Skills, Address, Editable Notes | ✅ Implemented |
-| 13 | Form Validation | Complete client JavaScript validation checks with error warnings and modal popup confirmation | ✅ Implemented |
-| 14 | Animation Effects | 5+ animations: Fade-In, Pulse indicator, Zoom cards, Typing Effect, and Slide-Up transitions | ✅ Implemented |
-| 15 | Action Buttons | CSS transitions on Onboard Workspace, Open Drag & Drop, Submit, and Reset buttons | ✅ Implemented |
-| 16 | Scroll-to-Top Button | Floating arrow "Back to Top" button fading in after scrolling down 300px | ✅ Implemented |
-| 17 | Contact Section | Support email (`support@syncflow.ai`), phone, office location, GitHub & Vercel links | ✅ Implemented |
-| 18 | Footer | Copyright info, app name, developer name (**Bhuvanesh S**), Reg No (**23IT101**), and nav links | ✅ Implemented |
-| 19 | GitHub Repository | Uploaded project files to GitHub repo `https://github.com/Iam-Bhuvanesh/FullStackLab` | ✅ Implemented |
-| 20 | Vercel Deployment | Deployed project live on Vercel production environment | ✅ Implemented |
-| 21 | CSS Variables | Defined `:root` custom properties for color palette, typography, spacing, and dark/light theme tokens | ✅ Implemented |
-| 22 | CSS Grid Layout | Applied CSS Grid on Dashboard Stats, DND Grid, Storage Grid, Features, and Services | ✅ Implemented |
-| 23 | CSS Flexbox Layout | Used Flexbox for Header container, Navigation links, Action buttons, Notification items, and Footer | ✅ Implemented |
-| 24 | Media Queries | Responsive breakpoint styling for desktop (1400px), tablet (1024px/768px), and mobile devices | ✅ Implemented |
-| 25 | CSS Pseudo Elements | Demonstrated `::before`, `::after` (tooltips), `::first-letter` (drop caps), `::first-line`, and `::selection` | ✅ Implemented |
-| 26 | CSS Transformations | Applied `translate()`, `rotate()`, `scale()`, and `skew()` on workspace cards and icons | ✅ Implemented |
-| 27 | CSS Transitions | Applied smooth `cubic-bezier(0.4, 0, 0.2, 1)` transitions on buttons, navigation items, and cards | ✅ Implemented |
-| 28 | CSS Icons | Integrated vector SVG icons with hover rotation and color transitions | ✅ Implemented |
-| 29 | Image Hover Effects | Implemented graphic zoom (`scale(1.08)`), brightness adjustment, and gradient overlay transitions | ✅ Implemented |
-| 30 | CSS Positioning | Demonstrated `relative`, `absolute` (tooltips & overlays), `fixed` (back-to-top & drawer), and `sticky` (nav) | ✅ Implemented |
-| 31 | CSS Progress Bars | Built animated progress bars (Node Load 78%, Memory 64%, Uptime 99.98%) with `@keyframes` | ✅ Implemented |
-| 32 | CSS Tooltip | Designed pure CSS tooltips using `[data-tooltip]` with `::before` and `::after` pseudo-elements | ✅ Implemented |
+This application incorporates **ALL requirements from ALL 4 course assignments** into a single cohesive project:
+1. **Assignment (Advanced CSS & Restaurant Theme)**: 32 detailed requirements including Restaurant Theme, Sticky Nav, Welcome Banner with Typing animation, Animated Dashboard Cards, Dynamic Stats Counters, Features `<ul>`/`<li>`, Services `<ol>`/`<li>`, Automatic Image Slider Carousel, Live Clock, Light/Dark Theme Switcher, Notification Panel Drawer, Reservation Form & JS Validation, Animations, Action Buttons, Scroll-to-Top, Contact section, Footer, CSS Variables (`:root`), CSS Grid, Flexbox, Media Queries, Pseudo-elements (`::before`, `::after`, `::first-letter`, `::first-line`, `::selection`), Transformations (`translate`, `rotate`, `scale`, `skew`), Transitions, Hover Effects, Positioning, Progress Bars, and Tooltips (`[data-tooltip]`).
+2. **Demonstration of All Three CSS Stylesheet Methods**: **Inline CSS** (`style="..."`), **Internal CSS** (`<style>` block in `<head>`), and **External CSS** (`style.css`).
+3. **Assignment 4 (HTML5 Drag & Drop and Web Storage)**: Draggable cards (`draggable="true"`), dropzones (*Source Palette*, *Active Order Zone*, *Completed Archive*), JS drag handlers, `localStorage`, `sessionStorage`, data retrieval & terminal inspection screen, and semantic elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`).
+4. **Assignment (Advanced HTML5 Form Elements)**: Full Name, Email, Phone pattern, Date of Birth / Reservation Date, Preferred Time, Age / Guests (1-100), Gender radio buttons, Skills / Seating checkboxes, Address textarea, Contenteditable notes with `spellcheck="true"`, Submit (`Reserve Table`), Reset (`Reset Fields`), and Cancel (`Cancel Operation`).
+5. **Assignment 1 (Dashboard Webpage & HTML Elements)**: Application Logo, Name ("Gourmet Delight"), Tagline, Student Name (**Bhuvanesh S**), Register Number (**23IT101**), Latest Updates `<marquee>`, Application Modules Table, GitHub repository push, Vercel deployment, and `FullStackLab.zip` LMS submission package.
 
 ---
 
-## 📂 Project Architecture
+## 📋 Comprehensive 4-Assignment Verification Matrix
+
+| S.No | Component / Requirement | Assignment Source | Implementation Details | Status |
+|---|---|---|---|---|
+| 1 | Professional Restaurant Theme | Advanced CSS Assignment | Luxury Gourmet Restaurant Theme with amber gold & crimson accents | ✅ Implemented |
+| 2 | Navigation Bar | Advanced CSS & Assignment 1 | Sticky nav with `Home`, `Menu`, `Chefs`, `Reservations`, `Gallery`, `Reviews`, `Services`, `Reports`, `About`, `Contact`, `Help`, `Logout` | ✅ Implemented |
+| 3 | Welcome Banner | Advanced CSS & Assignment 1 | Restaurant title, tagline, typing animation, vision, mission, and offers | ✅ Implemented |
+| 4 | Dashboard Cards | Advanced CSS & Assignment 1 | Animated cards displaying Available Tables, Today's Orders, Revenue, Ratings | ✅ Implemented |
+| 5 | Dynamic Statistics | Advanced CSS & Assignment 1 | JavaScript `requestAnimationFrame` counters ticking live dining metrics | ✅ Implemented |
+| 6 | Features Section | Advanced CSS & Assignment 1 | `<ul>` / `<li>` list cards detailing Online Reservation, Express Delivery, Live Kitchen | ✅ Implemented |
+| 7 | Services Section | Advanced CSS & Assignment 1 | `<ol>` / `<li>` ordered list detailing Luxury Dine-In, Gourmet Takeaway, Catering | ✅ Implemented |
+| 8 | Image/Banner Slider | Advanced CSS Assignment | Automatic 5-second JS carousel showcasing restaurant interiors, dishes, chefs | ✅ Implemented |
+| 9 | Date & Time Display | Advanced CSS & Assignment 1 | Dynamic real-time date and ticking clock updating every second | ✅ Implemented |
+| 10 | Theme Switcher | Advanced CSS Assignment | Light Mode, Cyber Dark Mode, and Deep Space AMOLED mode via JS | ✅ Implemented |
+| 11 | Notification Panel | Advanced CSS Assignment | Show/Hide sliding drawer panel displaying specials and offers | ✅ Implemented |
+| 12 | Reservation / Registration Form | Advanced Forms & CSS | Name, Email, Phone, Date, Time, Age/Guests, Gender, Skills, Address, Editable Notes | ✅ Implemented |
+| 13 | Form Validation | Advanced Forms & CSS | Client JavaScript validation with error warnings and modal popup confirmation | ✅ Implemented |
+| 14 | Animation Effects | Advanced CSS Assignment | 5+ animations: Fade-In, Pulse indicator, Zoom cards, Typing Effect, Slide-Up | ✅ Implemented |
+| 15 | Action Buttons | Advanced CSS Assignment | CSS transitions on Reserve Table, Order Now, Contact, Submit, Reset, Cancel | ✅ Implemented |
+| 16 | Scroll-to-Top Button | Advanced CSS Assignment | Floating arrow "Back to Top" button fading in after scrolling 300px | ✅ Implemented |
+| 17 | Contact Section | Advanced CSS & Assignment 1 | Address, phone, email, Google Maps mock, GitHub & Vercel links | ✅ Implemented |
+| 18 | Footer | Advanced CSS & Assignment 1 | Copyright, restaurant name, developer name (**Bhuvanesh S**), Reg No (**23IT101**) | ✅ Implemented |
+| 19 | GitHub Repository | Assignment 1 & CSS | Uploaded project files to GitHub repo `https://github.com/Iam-Bhuvanesh/FullStackLab` | ✅ Implemented |
+| 20 | Vercel Deployment | Assignment 1 & CSS | Deployed live application on Vercel cloud environment | ✅ Implemented |
+| 21 | CSS Variables | Advanced CSS Assignment | Defined `:root` custom properties for colors, typography, theme modes | ✅ Implemented |
+| 22 | CSS Grid Layout | Advanced CSS Assignment | Applied CSS Grid on Dashboard Stats, Chefs Grid, Gallery Grid, DND Grid | ✅ Implemented |
+| 23 | CSS Flexbox Layout | Advanced CSS Assignment | Used Flexbox for Header container, Navigation links, Action buttons, Footer | ✅ Implemented |
+| 24 | Media Queries | Advanced CSS Assignment | Responsive breakpoint styling for desktop (1400px), tablet (1024px/768px), and mobile | ✅ Implemented |
+| 25 | CSS Pseudo Elements | Advanced CSS Assignment | Demonstrated `::before`, `::after` (tooltips), `::first-letter` (drop cap), `::first-line`, `::selection` | ✅ Implemented |
+| 26 | CSS Transformations | Advanced CSS Assignment | Applied `translate()`, `rotate()`, `scale()`, and `skew()` on chef cards & icons | ✅ Implemented |
+| 27 | CSS Transitions | Advanced CSS Assignment | Smooth `cubic-bezier(0.4, 0, 0.2, 1)` transitions on buttons and cards | ✅ Implemented |
+| 28 | CSS Icons | Advanced CSS Assignment | Vector SVG icons with hover rotation and color transitions | ✅ Implemented |
+| 29 | Image Hover Effects | Advanced CSS Assignment | Graphic zoom (`scale(1.1)`), brightness adjustment, and gradient overlays | ✅ Implemented |
+| 30 | CSS Positioning | Advanced CSS Assignment | Demonstrated `relative`, `absolute` (tooltips), `fixed` (back-to-top & drawer), `sticky` (nav) | ✅ Implemented |
+| 31 | CSS Progress Bars | Advanced CSS Assignment | Animated progress bars (Capacity 85%, Occupancy 72%, Hygiene 98%) via `@keyframes` | ✅ Implemented |
+| 32 | CSS Tooltip | Advanced CSS Assignment | Pure CSS tooltips using `[data-tooltip]` with `::before` and `::after` | ✅ Implemented |
+| 33 | Drag Source & Drop Target | Assignment 4 | Draggable cards (`draggable="true"`) & dropzones (*Source*, *Active*, *Archive*) | ✅ Implemented |
+| 34 | Drag Events | Assignment 4 | Implemented `dragstart`, `dragover`, `dragenter`, `dragleave`, `drop` in JS | ✅ Implemented |
+| 35 | Local Storage | Assignment 4 | Save, Retrieve, Clear permanent user profile data in `localStorage` | ✅ Implemented |
+| 36 | Session Storage | Assignment 4 | Save, Retrieve, Clear temporary dining token in `sessionStorage` | ✅ Implemented |
+| 37 | Storage Terminal Output | Assignment 4 | Terminal output screen inspecting stored JSON data on button click | ✅ Implemented |
+| 38 | Latest Updates Marquee | Assignment 1 | `<marquee>` banner displaying daily chef specials and announcements | ✅ Implemented |
+| 39 | Application Modules Table | Assignment 1 | Table displaying Module ID, Module Name, and Description | ✅ Implemented |
+| 40 | Multi-CSS Demonstrations | Assignment 2 / CSS | Demonstrated Inline CSS (`style="..."`), Internal CSS (`<style>`), and External CSS (`style.css`) | ✅ Implemented |
+
+---
+
+## 📂 Project Structure
 
 ```bash
 FullStackLab/
-├── index.html     # HTML5 Document (Header, Nav, Banner, Cards, Slider, Form, Drag & Drop, Storage, Aside, Footer)
+├── index.html     # HTML5 Source File (Semantic structure, Form, Drag & Drop, Storage, Table, Marquee)
 ├── style.css      # External Stylesheet (:root variables, CSS Grid, Flexbox, Transforms, Media Queries)
-├── script.js      # JS Core (Dynamic Stats Counter, Image Slider, Form Validator, Drag/Drop, Storage, Theme Switcher)
-└── README.md      # Comprehensive Assignment Verification Document (this file)
+├── script.js      # JavaScript Core Engine (Stats counters, Slider, Form validation, Drag/Drop, Web Storage)
+└── README.md      # Comprehensive 4-Assignment Verification Document (this file)
 ```
 
 ---
 
 ## 💻 Local Execution Guide
 
-1. Clone or open the repository folder:
+1. Clone or navigate to the repository directory:
    ```bash
    cd FullStackLab
    ```
-2. Open `index.html` in any web browser:
+2. Launch `index.html` in your web browser:
    * **Windows:** `start index.html`
-3. Testing Assignment Features:
-   * **Form Validation:** Submit registration with invalid inputs to see JS validation alerts.
-   * **Drag and Drop:** Drag cards from Source Palette into Active Workspace or Staging Archive.
-   * **Web Storage:** Save to Local or Session storage and click Retrieve Data to inspect JSON output in the terminal.
+3. Verify features:
+   * **Reservation Form:** Submit invalid inputs to test client JS error warnings.
+   * **Drag & Drop:** Drag dish cards into Active Order Zone or Completed Archive.
+   * **Web Storage:** Save/retrieve data to test `localStorage` and `sessionStorage` terminal outputs.
